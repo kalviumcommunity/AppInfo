@@ -1,0 +1,146 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+body {
+  background-color: #474c54;
+  margin: 0px;
+  padding: 0px;
+}
+
+#headerdiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1b1d21;
+  flex-wrap: wrap;
+}
+
+#spacegrid {
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#grideven {
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1b1d21;
+}
+
+#header1 {
+  display: grid;
+  /* justify-content: center; */
+  grid-auto-flow: column;
+  flex-wrap: wrap;
+}
+
+#navspan {
+  color: rgb(255, 255, 255);
+  background-color: #1b1d21;
+}
+
+#loginbtn {
+  background-color: #1b1d21;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid cyan;
+  font-size: 1.2rem;
+}
+
+#centertext {
+  font-size: 35px;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+#outerdiv {
+  background-color: #545b65;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-left:solid rgb(255, 255, 255) 3px;
+  width: 80%;
+height: 350px;
+    padding: 15px;
+
+
+}
+
+#largepara {
+  font-weight: 1000;
+  font-size: 35px;
+
+}
+
+#smallpara {
+  font-size: 23px;
+  color: #ffcece;
+}
+
+#upbutton {
+  font-size: 37px;
+  font-weight: bold;
+
+  color: white;
+  background-color: #000000;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-right: 3.5rem;
+  padding-left: 3.5rem;
+  border-radius: 100px;
+}
+
+
+
+#upbutton:active{
+  border: 1px solid cyan;
+  
+}
+
+
+
+#uploaddiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+
+#dp{
+  border-radius: 100%;
+  width: 2.7rem;
+
+}
+
+
+#dp:hover{
+  border: 1px solid cyan;
+  
+}
+
+
+
+input[type="file"]
+{
+  display: none;
+    }
+
+    
+
+
+    /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
+    
