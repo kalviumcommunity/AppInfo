@@ -78,7 +78,7 @@ exec("cd uploads && rm "+AppName, (a, b, c) => {
 
 // ///////////////////////////////////////////////////
 
-const port = 3001; // or any port you prefer
+const port = 3005; // or any port you prefer
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
