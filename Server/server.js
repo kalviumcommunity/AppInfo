@@ -22,10 +22,9 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
   if (AppName != undefined) {
     // ///////////////////////////////////////////////////////
-    console.log("Executing cd uploads && ./aapt2 dump badging " + AppName);
 
     exec("cd uploads && ./aapt2 dump badging " + AppName, (a, b, c) => {
-      var str = b;
+      var str = b+"compressed";
       var res = str.replace(/\s+/g, "");
       // console.log(res);t
 
@@ -33,7 +32,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
       var data = res;
 
-      function AppName() {
+      function ApplicationName() {
         let startIndex = data.indexOf("label=") + 7;
 
         let endIndex = data.indexOf("'icon='");
@@ -127,7 +126,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
       function SupportedScreenDensities() {
         let startIndex = data.indexOf("u'densities:'") + 17;
 
-        let endIndex = data.indexOf("textended");
+        let endIndex = data.indexOf("compressed");
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
@@ -191,14 +190,14 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
       function Signature() {
         exec(
-          "cd uploads && ./keytool -printcert -jarfile test.apk ",
+          `cd uploads && ./keytool -printcert -jarfile ${AppName}`,
           (a, values, c) => {
             console.log("Signature : " + values);
           }
         );
       }
 
-      AppName();
+      ApplicationName();
       MinSDKVersion();
       versionName();
       versionCode();
@@ -212,9 +211,9 @@ app.post("/uploads", upload.single("file"), (req, res) => {
     });
 
     //removing the APK file
-    exec("cd uploads && rm " + AppName, (a, b, c) => {
-      console.log("File deleted " + AppName);
-    });
+    // exec("cd uploads && rm " + AppName, (a, b, c) => {
+    //   console.log("File deleted " + AppName);
+    // });
   } else {
   }
   // delete file named 'sample.txt'
