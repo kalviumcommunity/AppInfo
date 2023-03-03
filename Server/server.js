@@ -194,14 +194,17 @@ app.post("/uploads", upload.single("file"), (req, res) => {
             console.log("Signature : " + values);
           }
         );
+        deleter();
+      }
 
+      function deleter() {
         exec("rm apk.txt", (a, b, c) => {
           console.log("Text File deleted ");
         });
 
         //  removing the APK file
         exec("cd uploads && rm " + AppName, (a, b, c) => {
-          console.log( AppName + "File deleted " );
+          console.log(AppName + "File deleted ");
         });
       }
 
