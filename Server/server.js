@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post("/upload", upload.single("file"), (req, res) => {
+app.post("/uploads", upload.single("file"), (req, res) => {
   //Upload Test
   console.log("File uploaded successfully!");
 
@@ -208,7 +208,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
       SupportedScreenDensities();
       Features();
       Permissions();
-      Signature();
+      Signature();  
     });
 
     //removing the APK file
