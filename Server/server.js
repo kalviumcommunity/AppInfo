@@ -189,7 +189,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
       function Signature() {
         exec(
-          `cd uploads && ./keytool -printcert -jarfile ${AppName}`,
+          `cd uploads && keytool -printcert -jarfile ${AppName}`,
           (a, values, c) => {
             console.log("Signature : " + values);
           }
