@@ -29,7 +29,7 @@ function Uploadbox(event) {
         <div class="fileUpload btn btn-primary">
           <form
             ref={FormRef}
-            action="http://143.110.184.87:3005/uploads"
+            action="http://localhost:3005/uploads"
             method="POST"
             encType="multipart/form-data"
           >

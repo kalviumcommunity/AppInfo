@@ -17,20 +17,18 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post("/uploads", upload.single("file"), (req, res) => {
-  //Upload Test
-  console.log("File uploaded successfully!");
-
   if (AppName != undefined) {
-    // ///////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+    console.log("File uploaded successfully!");
 
     exec("cd uploads && ./aapt2 dump badging " + AppName, (a, b, c) => {
-      var str = b+"compressed";
+      var str = b + "compressed";
       var res = str.replace(/\s+/g, "");
-      // console.log(res);t
-
+      // storing the Text file
       fs.writeFileSync("apk.txt", res);
-
       var data = res;
+
+      CallOutFuntion();
 
       function ApplicationName() {
         let startIndex = data.indexOf("label=") + 7;
@@ -170,6 +168,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
           "cd uploads && ./aapt2 dump permissions test.apk ",
           (a, values, c) => {
             console.log("Permissions : " + values);
+            //Calling Languages After Permissions
             Languages();
           }
         );
@@ -190,33 +189,39 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
       function Signature() {
         exec(
-          `cd uploads && keytool -printcert -jarfile ${AppName}`,
+          `cd uploads && ./keytool -printcert -jarfile ${AppName}`,
           (a, values, c) => {
             console.log("Signature : " + values);
           }
         );
+
+        exec("rm apk.txt", (a, b, c) => {
+          console.log("Text File deleted ");
+        });
+
+        //  removing the APK file
+        exec("cd uploads && rm " + AppName, (a, b, c) => {
+          console.log( AppName + "File deleted " );
+        });
       }
 
-      ApplicationName();
-      MinSDKVersion();
-      versionName();
-      versionCode();
-      PackageName();
-      TargetSdkVersion();
-      SupportScreensizes();
-      SupportedScreenDensities();
-      Features();
-      Permissions();
-      Signature();  
+      function CallOutFuntion() {
+        ApplicationName();
+        MinSDKVersion();
+        versionName();
+        versionCode();
+        PackageName();
+        TargetSdkVersion();
+        SupportScreensizes();
+        SupportedScreenDensities();
+        Features();
+        Permissions();
+        //Languages is inside Permission Funtion
+        Signature();
+      }
     });
-
-    //removing the APK file
-    // exec("cd uploads && rm " + AppName, (a, b, c) => {
-    //   console.log("File deleted " + AppName);
-    // });
   } else {
   }
-  // delete file named 'sample.txt'
 });
 
 // ///////////////////////////////////////////////////
