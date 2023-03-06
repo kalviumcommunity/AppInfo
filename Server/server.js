@@ -165,7 +165,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
       function Permissions() {
         exec(
-          "cd uploads && ./aapt2 dump permissions test.apk ",
+          `cd uploads && ./aapt2 dump permissions ${AppName}`,
           (a, values, c) => {
             console.log("Permissions : " + values);
             //Calling Languages After Permissions
@@ -192,20 +192,18 @@ app.post("/uploads", upload.single("file"), (req, res) => {
           `cd uploads && keytool -printcert -jarfile ${AppName}`,
           (a, values, c) => {
             console.log("Signature : " + values);
+            deleter();
           }
         );
-        // deleter();
       }
 
       function deleter() {
-        exec("rm apk.txt", (a, b, c) => {
+        exec("rm apk.txt && cd uploads && rm " + AppName, (a, b, c) => {
           console.log("Text File deleted ");
         });
 
         //  removing the APK file
-        exec("cd uploads && rm " + AppName, (a, b, c) => {
-          console.log(AppName + "File deleted ");
-        });
+
       }
 
       function CallOutFuntion() {
@@ -221,6 +219,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         Permissions();
         //Languages is inside Permission Funtion
         Signature();
+        // deleter()
       }
     });
   } else {
