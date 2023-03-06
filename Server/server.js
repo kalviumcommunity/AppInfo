@@ -194,7 +194,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
             console.log("Signature : " + values);
           }
         );
-        deleter();
+        // deleter();
       }
 
       function deleter() {
