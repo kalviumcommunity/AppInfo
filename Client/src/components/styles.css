@@ -25,6 +25,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+
 #grideven {
   display: grid;
   gap: 10px;
@@ -72,10 +73,10 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-left:solid rgb(255, 255, 255) 3px;
+  border-left: solid rgb(255, 255, 255) 3px;
   width: 80%;
-height: 350px;
-    padding: 15px;
+  height: 350px;
+  padding: 15px;
 
 
 }
@@ -106,41 +107,72 @@ height: 350px;
 
 
 
-#upbutton:active{
+#upbutton:active {
   border: 1px solid cyan;
-  
+
 }
 
 
 
-#uploaddiv{
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
+#uploaddiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
 }
 
 
-#dp{
+#dp {
   border-radius: 100%;
   width: 2.7rem;
 
 }
 
 
-#dp:hover{
+#dp:hover {
   border: 1px solid cyan;
-  
+
 }
 
 
 
-input[type="file"]
-{
+input[type="file"] {
   display: none;
-    }
-
-    
+}
 
 
-    /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
-    
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+#toc {
+  background-color: white;
+  /* padding: 10px; */
+  margin-top: 0.2rem;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+
+}
+
+table {
+  background-color: #ffffff;
+  border-collapse: collapse;
+  width: 100%;
+  padding: 10px;
+  font-weight: bolder;
+}
+
+tr {
+  border-bottom: 1px solid black;
+
+}
+
+td {
+  padding: 1.2rem;
+}
+
+
+td:nth-child(2) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}

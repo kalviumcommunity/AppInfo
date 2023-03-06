@@ -9,7 +9,6 @@ function Uploadbox(event) {
     FormRef.current.submit();
   }
 
-  
 
 
   return (
@@ -29,7 +28,7 @@ function Uploadbox(event) {
         <div class="fileUpload btn btn-primary">
           <form
             ref={FormRef}
-            action="http://localhost:3005/uploads"
+            action={process.env.REACT_APP_SERVER_URL}
             method="POST"
             encType="multipart/form-data"
           >
