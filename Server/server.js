@@ -16,17 +16,17 @@ const storage = multer.diskStorage({
 
 
 let Application_Name;
-let MinSDKVersion;
-let versionName;
-let versionCode;
-let PackageName;
-let TargetSdkVersion;
-let SupportScreensizes;
-let SupportedScreenDensities;
-let Features;
-let Permissions;
-let Languages;
-let Signature;
+let MinSDK_Version;
+let version_Name;
+let version_Code;
+let Package_Name;
+let TargetSdk_Version;
+let Support_Screensizes;
+let Supported_ScreenDensities;
+let Feature_s;
+let Permission_s;
+let Language_s;
+let Signature_s;
 
 
 
@@ -70,7 +70,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Min SDK Version : " + name);
+          // console.log("Min SDK Version : " + name);
+          MinSDK_Version = name
         } else {
           console.log("Name not found in data.");
         }
@@ -83,7 +84,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("versionName : " + name);
+          // console.log("versionName : " + name);
+          version_Name = name
         } else {
           console.log("Name not found in data.");
         }
@@ -96,7 +98,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("versionCode : " + name);
+          // console.log("versionCode : " + name);
+          version_Code = name
         } else {
           console.log("Name not found in data.");
         }
@@ -109,7 +112,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Package Name : " + name);
+          // console.log("Package Name : " + name);
+          Package_Name = name
         } else {
           console.log("Name not found in data.");
         }
@@ -122,7 +126,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Target SdkVersion : " + name);
+          // console.log("Target SdkVersion : " + name);
+          TargetSdk_Version = name
         } else {
           console.log("Name not found in data.");
         }
@@ -135,7 +140,9 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Support Screen sizes: " + name);
+          // console.log("Support Screen sizes: " + name);
+          Support_Screensizes = name
+
         } else {
           console.log("Name not found in data.");
         }
@@ -148,13 +155,16 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Supported Screen Densities: " + name);
+          // console.log("Supported Screen Densities: " + name);
+          Supported_ScreenDensities = name
+
         } else {
           console.log("Name not found in data.");
         }
       }
 
       function Features() {
+
         let startIndex = data.indexOf("feature-group:label=''") + 22;
 
         let endIndex = data.indexOf("other-activities");
@@ -177,7 +187,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
             }
           }
 
-          console.log("Features : " + newStr);
+          // console.log("Features : " + newStr);
+          Feature_s = newStr;
         } else {
           console.log("Name not found in data.");
         }
@@ -187,7 +198,8 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         exec(
           `cd uploads && ./aapt2 dump permissions ${AppName}`,
           (a, values, c) => {
-            console.log("Permissions : " + values);
+            // console.log("Permissions : " + values);
+            Permission_s = values
             //Calling Languages After Permissions
             Languages();
           }
@@ -201,7 +213,9 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Languages " + name);
+          // console.log("Languages " + name);
+          Language_s = name;
+
         } else {
           console.log("Name not found in data.");
         }
@@ -211,7 +225,9 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         exec(
           `cd uploads && keytool -printcert -jarfile ${AppName}`,
           (a, values, c) => {
-            console.log("Signature : " + values);
+            // console.log("Signature : " + values);
+            Signature_s = values
+            Datas()
             deleter();
           }
         );
@@ -242,14 +258,26 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         // deleter()
       }
 
-
-      const datas = {
-        name: Application_Name,
-        age: 30,
-        email: "johndoe@example.com"
-      };
+      function Datas () {
+        datas = {
+          name: Application_Name,
+          MinSDK_Version,
+          version_Name,
+          version_Code,
+          Package_Name,
+          TargetSdk_Version,
+          Support_Screensizes,
+          Supported_ScreenDensities,
+          Feature_s,
+          Permission_s,
+          Language_s,
+          Signature_s
+        }
 
       console.log(datas)
+
+      };
+
 
 
 
