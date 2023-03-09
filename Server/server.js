@@ -14,6 +14,22 @@ const storage = multer.diskStorage({
   },
 });
 
+
+let Application_Name;
+let MinSDKVersion;
+let versionName;
+let versionCode;
+let PackageName;
+let TargetSdkVersion;
+let SupportScreensizes;
+let SupportedScreenDensities;
+let Features;
+let Permissions;
+let Languages;
+let Signature;
+
+
+
 const upload = multer({ storage: storage });
 
 app.post("/uploads", upload.single("file"), (req, res) => {
@@ -30,14 +46,18 @@ app.post("/uploads", upload.single("file"), (req, res) => {
 
       CallOutFuntion();
 
+
+
+
       function ApplicationName() {
         let startIndex = data.indexOf("label=") + 7;
 
         let endIndex = data.indexOf("'icon='");
 
         if (startIndex !== -1 && endIndex !== -1) {
-          let name = data.substring(startIndex, endIndex);
-          console.log("App Name : " + name);
+          let App_Name = data.substring(startIndex, endIndex);
+          // console.log("App Name : " + App_Name)
+          Application_Name = App_Name
         } else {
           console.log("Name not found in data.");
         }
@@ -221,8 +241,22 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         Signature();
         // deleter()
       }
+
+
+      const datas = {
+        name: Application_Name,
+        age: 30,
+        email: "johndoe@example.com"
+      };
+
+      console.log(datas)
+
+
+
+
     });
-  } else {
+  }
+  else {
   }
 });
 
