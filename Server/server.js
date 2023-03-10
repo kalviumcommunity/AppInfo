@@ -3,6 +3,31 @@ const multer = require("multer");
 const fs = require("fs");
 const app = express();
 const { exec } = require("child_process");
+const mongoose = require('mongoose');
+
+
+
+
+////////////////////////////////////////////
+// mongodb
+const url = 'mongodb+srv://balajis:hcsnTgKf5YhQ6oGw@cluster1.uzi21wt.mongodb.net/?retryWrites=true&w=majority';
+
+
+const schema = new mongoose.Schema({
+  Application_Name: { type: String, required: false },
+  MinSDK_Version: { type: String, required: false },
+  version_Name: { type: String, required: false },
+  version_Code: { type: String, required: false },
+  Package_Name: { type: String, required: false },
+  TargetSdk_Version: { type: String, required: false },
+  Support_Screensizes: { type: String, required: false },
+  Supported_ScreenDensities: { type: String, required: false },
+  Feature_s: { type: String, required: false },
+  Permission_s: { type: String, required: false },
+  Language_s: { type: String, required: false },
+  Signature_s: { type: String, required: false }
+
+});
 
 // configure multer to use the destination folder and keep the original file name
 let AppName;
@@ -258,9 +283,9 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         // deleter()
       }
 
-      function Datas () {
-        datas = {
-          name: Application_Name,
+      function Datas() {
+        data = {
+          Application_Name,
           MinSDK_Version,
           version_Name,
           version_Code,
@@ -274,15 +299,41 @@ app.post("/uploads", upload.single("file"), (req, res) => {
           Signature_s
         }
 
-      console.log(datas)
+        console.log(data)
+
+
+
+        ////////////////////////////////////////////
+
+
+
+
+
+        mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+          .then(() => console.log('Connected to MongoDB'))
+          .catch(err => console.error('Could not connect to MongoDB', err));
+
+
+
+
+
+        const aptdata = mongoose.model('aptdata', schema);
+
+
+
+        aptdata.create(data)
+          .then(doc => console.log('Document created:', doc))
+          .catch(err => console.error('Could not create document', err));
+
+
+
+        //////////////////////////////////////////////
 
       };
 
 
-
-
-
     });
+
   }
   else {
   }
@@ -295,3 +346,5 @@ const port = 3005; // or any port you prefer
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+
