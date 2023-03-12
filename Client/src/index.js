@@ -17,11 +17,11 @@ root.render(
     }}
   >
     <Homepage />
-    {/* <Bodytext /> */}
+    <Bodytext />
     <Uploadbox />
     <br/>
     {/* <Profile /> */}
-    <Details/>
+    {/* <Details/> */}
 
   </Auth0Provider>
   
