@@ -1,0 +1,5 @@
+WebSocket was designed to transfer text data, and sending binary files such as APKs may not be the most efficient use of the protocol.
+
+To send an APK file via WebSocket, you would need to convert the binary data of the APK file into a text format that can be sent via WebSocket. One common way to do this is by using base64 encoding. The sending end would encode the APK file as base64 and send it as a text message via WebSocket. The receiving end would then decode the base64 message back into binary data to reconstruct the APK file.
+
+It's important to note that some WebSocket implementations may have limits on the size of messages that can be sent. Additionally, transferring large files via WebSocket may not be the most efficient or reliable method, and it may be better to use a dedicated file transfer protocol or service instead.

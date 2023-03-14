@@ -3,6 +3,31 @@ const multer = require("multer");
 const fs = require("fs");
 const app = express();
 const { exec } = require("child_process");
+const mongoose = require('mongoose');
+
+
+
+
+////////////////////////////////////////////
+// mongodb
+const url = 'mongodb+srv://balajis:hcsnTgKf5YhQ6oGw@cluster1.uzi21wt.mongodb.net/?retryWrites=true&w=majority';
+
+
+const schema = new mongoose.Schema({
+  Application_Name: { type: String, required: false },
+  MinSDK_Version: { type: String, required: false },
+  version_Name: { type: String, required: false },
+  version_Code: { type: String, required: false },
+  Package_Name: { type: String, required: false },
+  TargetSdk_Version: { type: String, required: false },
+  Support_Screensizes: { type: String, required: false },
+  Supported_ScreenDensities: { type: String, required: false },
+  Feature_s: { type: String, required: false },
+  Permission_s: { type: String, required: false },
+  Language_s: { type: String, required: false },
+  Signature_s: { type: String, required: false }
+
+});
 
 // configure multer to use the destination folder and keep the original file name
 let AppName;
@@ -14,66 +39,304 @@ const storage = multer.diskStorage({
   },
 });
 
+
+let Application_Name;
+let MinSDK_Version;
+let version_Name;
+let version_Code;
+let Package_Name;
+let TargetSdk_Version;
+let Support_Screensizes;
+let Supported_ScreenDensities;
+let Feature_s;
+let Permission_s;
+let Language_s;
+let Signature_s;
+
+
+
 const upload = multer({ storage: storage });
 
-app.post("/upload", upload.single("file"), (req, res) => {
-  //Upload Test
-  console.log("File uploaded successfully!");
-
+app.post("/uploads", upload.single("file"), (req, res) => {
   if (AppName != undefined) {
-    
-    // ///////////////////////////////////////////////////////
-    console.log("Executing cd uploads && ./aapt2 dump badging " + AppName);
+    ////////////////////////////////////////////////////
+    console.log("File uploaded successfully!");
 
     exec("cd uploads && ./aapt2 dump badging " + AppName, (a, b, c) => {
-      var str = b;
+      var str = b + "compressed";
       var res = str.replace(/\s+/g, "");
-      // console.log(res);t
-
+      // storing the Text file
       fs.writeFileSync("apk.txt", res);
+      var data = res;
 
-      var txt = res;
+      CallOutFuntion();
 
-      let data = txt;
 
-      {
+
+
+      function ApplicationName() {
         let startIndex = data.indexOf("label=") + 7;
 
         let endIndex = data.indexOf("'icon='");
 
         if (startIndex !== -1 && endIndex !== -1) {
-          let name = data.substring(startIndex, endIndex);
-          console.log("App Name : " + name);
+          let App_Name = data.substring(startIndex, endIndex);
+          // console.log("App Name : " + App_Name)
+          Application_Name = App_Name
         } else {
           console.log("Name not found in data.");
         }
       }
 
-      {
-        let startIndex = data.indexOf("sdkVersion:'") + 12;
+      function MinSDKVersion() {
+        let startIndex = data.indexOf("sdkVersion:'") + 13;
 
         let endIndex = data.indexOf("'targetSdkVersion:");
 
         if (startIndex !== -1 && endIndex !== -1) {
           let name = data.substring(startIndex, endIndex);
-          console.log("Min SDK Version : " + name);
+          // console.log("Min SDK Version : " + name);
+          MinSDK_Version = name
         } else {
-          console.log("Min SDK not found in data.");
+          console.log("Name not found in data.");
         }
       }
+
+      function versionName() {
+        let startIndex = data.indexOf("versionName='") + 13;
+
+        let endIndex = data.indexOf("'platformBuildV");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("versionName : " + name);
+          version_Name = name
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function versionCode() {
+        let startIndex = data.indexOf("'versionCode='") + 14;
+
+        let endIndex = data.indexOf("'versionName");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("versionCode : " + name);
+          version_Code = name
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function PackageName() {
+        let startIndex = data.indexOf("package:name='") + 14;
+
+        let endIndex = data.indexOf("'versionCode");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("Package Name : " + name);
+          Package_Name = name
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function TargetSdkVersion() {
+        let startIndex = data.indexOf("targetSdkVersion:'") + 18;
+
+        let endIndex = data.indexOf("'uses-permis");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("Target SdkVersion : " + name);
+          TargetSdk_Version = name
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function SupportScreensizes() {
+        let startIndex = data.indexOf("supports-screens:") + 17;
+
+        let endIndex = data.indexOf("supports-any-");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("Support Screen sizes: " + name);
+          Support_Screensizes = name
+
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function SupportedScreenDensities() {
+        let startIndex = data.indexOf("u'densities:'") + 17;
+
+        let endIndex = data.indexOf("compressed");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("Supported Screen Densities: " + name);
+          Supported_ScreenDensities = name
+
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function Features() {
+
+        let startIndex = data.indexOf("feature-group:label=''") + 22;
+
+        let endIndex = data.indexOf("other-activities");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let str = data.substring(startIndex, endIndex);
+
+          let newStr = "";
+
+          for (let i = 0; i < str.length; i++) {
+            if (str[i] === "'") {
+              newStr += str[i];
+              while (i + 1 < str.length && str[i + 1] !== "'") {
+                newStr += str[i + 1];
+                i++;
+              }
+              newStr += "',";
+            } else {
+              newStr += str[i];
+            }
+          }
+
+          // console.log("Features : " + newStr);
+          Feature_s = newStr;
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function Permissions() {
+        exec(
+          `cd uploads && ./aapt2 dump permissions ${AppName}`,
+          (a, values, c) => {
+            // console.log("Permissions : " + values);
+            Permission_s = values
+            //Calling Languages After Permissions
+            Languages();
+          }
+        );
+      }
+
+      function Languages() {
+        let startIndex = data.indexOf("locales:") + 8;
+
+        let endIndex = data.indexOf("densities");
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          let name = data.substring(startIndex, endIndex);
+          // console.log("Languages " + name);
+          Language_s = name;
+
+        } else {
+          console.log("Name not found in data.");
+        }
+      }
+
+      function Signature() {
+        exec(
+          `cd uploads && keytool -printcert -jarfile ${AppName}`,
+          (a, values, c) => {
+            // console.log("Signature : " + values);
+            Signature_s = values
+            Datas()
+            deleter();
+          }
+        );
+      }
+
+      function deleter() {
+        exec("rm apk.txt && cd uploads && rm " + AppName, (a, b, c) => {
+          console.log("Text File deleted ");
+        });
+
+        //  removing the APK file
+
+      }
+
+      function CallOutFuntion() {
+        ApplicationName();
+        MinSDKVersion();
+        versionName();
+        versionCode();
+        PackageName();
+        TargetSdkVersion();
+        SupportScreensizes();
+        SupportedScreenDensities();
+        Features();
+        Permissions();
+        //Languages is inside Permission Funtion
+        Signature();
+        // deleter()
+      }
+
+      function Datas() {
+        data = {
+          Application_Name,
+          MinSDK_Version,
+          version_Name,
+          version_Code,
+          Package_Name,
+          TargetSdk_Version,
+          Support_Screensizes,
+          Supported_ScreenDensities,
+          Feature_s,
+          Permission_s,
+          Language_s,
+          Signature_s
+        }
+
+        console.log(data)
+
+
+
+        ////////////////////////////////////////////
+
+
+
+
+
+        mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+          .then(() => console.log('Connected to MongoDB'))
+          .catch(err => console.error('Could not connect to MongoDB', err));
+
+
+
+
+
+        const aptdata = mongoose.model('aptdata', schema);
+
+
+
+        aptdata.create(data)
+          .then(doc => console.log('Document created:', doc))
+          .catch(err => console.error('Could not create document', err));
+
+
+
+        //////////////////////////////////////////////
+
+      };
+
+
     });
 
-
-
-    
-//removing the APK file
-exec("cd uploads && rm "+AppName, (a, b, c) => {
-  console.log("File deleted "+ AppName)
-})
-
-  } else {
   }
-  // delete file named 'sample.txt'
+  else {
+  }
 });
 
 // ///////////////////////////////////////////////////
@@ -83,4 +346,5 @@ const port = 3005; // or any port you prefer
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
 

@@ -1,4 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import Bodytext from "../bodytext/bodytext";
+import { useDropzone } from 'react-dropzone'
 
 function Uploadbox(event) {
   // Auto Submit Upload Button
@@ -7,13 +11,26 @@ function Uploadbox(event) {
 
   function handleFileChange() {
     FormRef.current.submit();
-  }
+    console.log("Upload")
+    navigate('/details'); }
 
-  
+
+  const onDrop = useCallback(acceptedFiles => {
+    // Do something with the files
+    console.log(acceptedFiles);
+
+  }, [])
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+
+
+
 
 
   return (
-    <div id="uploaddiv">
+    <>
+<Bodytext />
+
+    <div id="uploaddiv" {...getRootProps()}>
       <div id="outerdiv">
         <div>
           <p id="largepara">
@@ -26,19 +43,17 @@ function Uploadbox(event) {
         </div>
 
         <br />
-        <div class="fileUpload btn btn-primary">
+        <div class="fileUpload btn btn-primary" >
           <form
             ref={FormRef}
-            action="http://localhost:3005/upload"
-            method="POST"
+            // action={process.env.REACT_APP_SERVER_URL}
+            // method="POST"
             encType="multipart/form-data"
           >
             <label class="upload">
               <input
-                type="file"
                 accept=".apk"
-                name="file"
-                onChange={handleFileChange}
+                {...getInputProps()}
               />
               <span id="upbutton">Upload</span>
             </label>
@@ -48,6 +63,8 @@ function Uploadbox(event) {
         </div>
       </div>
     </div>
+    </>
+
   );
 }
 

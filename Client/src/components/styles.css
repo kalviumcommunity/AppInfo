@@ -25,6 +25,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+
 #grideven {
   display: grid;
   gap: 10px;
@@ -45,6 +46,10 @@ body {
 #navspan {
   color: rgb(255, 255, 255);
   background-color: #1b1d21;
+  cursor: pointer;
+}
+#navspan:hover {
+  color: aquamarine;
 }
 
 #loginbtn {
@@ -72,23 +77,38 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-left:solid rgb(255, 255, 255) 3px;
+  /* border: solid rgb(255, 255, 255) 3px; */
+  /* border: dashed 4.5px #ffffff; */
   width: 80%;
-height: 350px;
-    padding: 15px;
+  height: 350px;
+  padding: 15px;
+  border-radius: 30px;
+
+  /*  */
+  box-shadow: cyan 0px 4px 110px 18px;
+  animation: blink 1s infinite alternate;
 
 
+}
+@keyframes blink {
+  from {
+    box-shadow: cyan 0px 4px 110px 18px;
+  }
+  to {
+    box-shadow: #545b65 10px 4px 110px 18px;
+  }
 }
 
 #largepara {
   font-weight: 1000;
-  font-size: 35px;
+  font-size: 37px;
+  color: #ffffff;
 
 }
 
 #smallpara {
-  font-size: 23px;
-  color: #ffcece;
+  font-size: 25px;
+  color: rgba(0, 255, 255, 0.931);
 }
 
 #upbutton {
@@ -106,41 +126,97 @@ height: 350px;
 
 
 
-#upbutton:active{
+#upbutton:active {
   border: 1px solid cyan;
-  
+
 }
 
 
 
-#uploaddiv{
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
+#uploaddiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
 }
 
 
-#dp{
+#dp {
   border-radius: 100%;
   width: 2.7rem;
 
 }
 
 
-#dp:hover{
+#dp:hover {
   border: 1px solid cyan;
-  
+
 }
 
 
 
-input[type="file"]
-{
+input[type="file"] {
   display: none;
-    }
-
-    
+}
 
 
-    /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
-    
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+#toc {
+  background-color: white;
+  /* padding: 10px; */
+  margin-top: 0.2rem;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+
+}
+
+table {
+  background-color: #ffffff;
+  border-collapse: collapse;
+  width: 100%;
+  padding: 10px;
+  font-weight: bolder;
+}
+
+tr {
+  border-bottom: 1px solid black;
+
+}
+
+td {
+  padding: 1.2rem;
+}
+
+#histd{
+  padding: 1rem;
+}
+
+td:nth-child(2) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+
+#toc-2 {
+  /* background-color: rgb(133, 37, 37); */
+  margin-top: 0.2rem;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+
+}
+
+
+.allignoptions{
+  display: flex;
+  flex-direction: row;
+justify-content: space-evenly;
+align-items: center;}
+
+#viewopt{
+  color: #6E03F6;
+  font-size: larger;
+  font-weight: bolder;
+}
