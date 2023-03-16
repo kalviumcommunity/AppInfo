@@ -1,70 +1,95 @@
-import React, { useRef, useCallback } from "react";
+import React, { createContext } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Bodytext from "../bodytext/bodytext";
-import { useDropzone } from 'react-dropzone'
+import socketIOClient from "socket.io-client";
 
-function Uploadbox(event) {
+
+export const ApkDetails =React.createContext()
+
+
+function Uploadbox(props) {
+
+  const [socket, setSocket] = useState(null);
+
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setSocket(socketIOClient("http://localhost:8000"));
+  }, []);
+  
+
+  const handleFileSelect = (e) => {
+    socket.emit("upload", e.target.files[0]);
+    console.log("File Emitted through Upload Button");
+
+    socket.on("data", (apkdatas) => {
+
+
+      console.log({apkdatas})
+      props.setApkinfo({...apkdatas})
+
+      
+
+    navigate("/details" );
+
+    })
+
+
+    // handleFileChange()
+  };
+
   // Auto Submit Upload Button
 
   const FormRef = useRef(null);
 
+
   function handleFileChange() {
-    FormRef.current.submit();
-    console.log("Upload")
-    navigate('/details'); }
+    // FormRef.current.submit();
+  }
 
-
-  const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
-    console.log(acceptedFiles);
-
-  }, [])
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
-
-
-
+  
 
 
   return (
     <>
-<Bodytext />
+      <Bodytext />
 
-    <div id="uploaddiv" {...getRootProps()}>
-      <div id="outerdiv">
-        <div>
-          <p id="largepara">
-            Click the 'Upload' button to select a file from your computer.
-          </p>
-          <p id="smallpara">
-            Save time and streamline your workflow with our intuitive drag and
-            drop feature.
-          </p>
-        </div>
+      <div id="uploaddiv">
+        <div id="outerdiv">
+          <div>
+            <p id="largepara">
+              Click the 'Upload' button to select a file from your computer.
+            </p>
+            <p id="smallpara">
+              Save time and streamline your workflow with our intuitive drag and
+              drop feature.
+            </p>
+          </div>
 
-        <br />
-        <div class="fileUpload btn btn-primary" >
-          <form
-            ref={FormRef}
-            // action={process.env.REACT_APP_SERVER_URL}
-            // method="POST"
-            encType="multipart/form-data"
-          >
-            <label class="upload">
-              <input
-                accept=".apk"
-                {...getInputProps()}
-              />
-              <span id="upbutton">Upload</span>
-            </label>
+          <br />
+          <div className="fileUpload btn btn-primary">
+            <form
+              ref={FormRef}
+              encType="multipart/form-data"
+            >
+              <label className="upload">
+                <input
+                  accept=".apk"
+                  type="file"
+                  onChange={handleFileSelect}
+                />
+                <span id="upbutton">Upload</span>
+              </label>
 
-            {/* <button type="submit" id="upbutton" >Submit</button> */}
-          </form>
+              {/* <button type="submit" id="upbutton" >Submit</button> */}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
-
   );
 }
 

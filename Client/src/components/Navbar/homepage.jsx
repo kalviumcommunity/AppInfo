@@ -33,7 +33,6 @@ const navigate = useNavigate();
             <img src={Profile} alt="" id="dp" />
           </div>
           {/* //login button */}
-          <button id="loginbtn">LOG IN</button>
         </div>
       </header>
     </>
