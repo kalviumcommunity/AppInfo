@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			max-width: 1000px;
+			margin: auto;
+			table-layout: fixed;
+			height: 300px;
+			overflow-y: scroll;
+		}
+		
+		th, td {
+			padding: 10px;
+			text-align: left;
+			vertical-align: top;
+			/* white-space: nowrap; */
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		
+		th, td :hover{
+			white-space: nowrap;
+			overflow: visible;
+			/* text-overflow: ellipsis; */
+		}
+
+
+		th {
+			background-color: #ddd;
+			font-weight: bold;
+		}
+		
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+			<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+		</tr>
+	</table>
+</body>
+</html>
