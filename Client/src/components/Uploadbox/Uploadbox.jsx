@@ -17,7 +17,8 @@ function Uploadbox(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setSocket(socketIOClient("http://localhost:8000"));
+    
+    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL));
   }, []);
   
 

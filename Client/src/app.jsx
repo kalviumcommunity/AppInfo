@@ -15,11 +15,11 @@ function app() {
 
   const [apkinfo, setApkinfo] = useState({});
   const [historyDetails , setHistoryDetails]=useState()
-
+console.log(process.env.REACT_APP_AUTH0_CLIENT_ID)
   return (
 <Auth0Provider
-    domain="dev-tumjlmbcbam83fd5.us.auth0.com"
-    clientId="kX8pQGaSE09v6KurOZmcAMJ20WUhv4Zd"
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}

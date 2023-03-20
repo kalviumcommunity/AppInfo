@@ -26,7 +26,7 @@ app.use(siofu.router);
 
 // mongodb
 const url =
-  "mongodb+srv://balajis:hcsnTgKf5YhQ6oGw@cluster1.uzi21wt.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://balajis:hcsnTgKf5YhQ6oGw@cluster1.uzi21wt.mongodb.net/test";
 
 const schema = new mongoose.Schema({
   Application_Name: { type: String, required: false },
@@ -47,6 +47,50 @@ mongoose
   .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB", err));
+
+
+      const aptdata = mongoose.model("aptdata", schema);
+
+   ////////////////////////////////////////////
+    // MongoDb Storing
+    function mongodb(data) {
+   
+  
+      aptdata
+        .create(data)
+        // .then(doc => console.log('Document created:', doc))
+        .catch((err) => console.error("Could not create document", err));
+    }
+    
+
+    aptdata.find()
+//   .then((data) => console.log(data))
+  .catch((err) => console.log(err));    
+
+
+// Define a route to retrieve the data
+app.get('/apkinfo', (req, res) => {
+    aptdata.find()
+    .then(data => res.json(data))
+    .catch(err => console.log(err));
+});
+
+
+
+// Define a route to delete data by ID
+app.delete('/apkinfo/:id', (req, res) => {
+    const id = req.params.id;
+    aptdata.findByIdAndRemove(id)
+      .then(() => {
+        res.status(200).send();
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send();
+      });
+  });
+
+  
 
 //declaration
 let data;
@@ -300,19 +344,7 @@ io.on("connection", (socket) => {
 
 
 
-   ////////////////////////////////////////////
-    // MongoDb Storing
-  function mongodb(data) {
-   
-    const aptdata = mongoose.model("aptdata", schema);
-
-    aptdata
-      .create(data)
-      // .then(doc => console.log('Document created:', doc))
-      .catch((err) => console.error("Could not create document", err));
-
-  }
-
+  
   function deleter() {
     exec("rm apk.txt && cd uploads && rm app.apk", (a, b, c) => {
       console.log("All Files deleted ");

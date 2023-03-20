@@ -21,10 +21,14 @@ function details({apkinfo}) {
     <div id='details outerdiv'>
       <div id='toc'>
         <table>
+          <thead>
           <tr>
-            <td>ApplicationName</td>
-            <td>{apkinfo.Application_Name}</td>
+            <th>ApplicationName</th>
+            <th>{apkinfo.Application_Name}</th>
           </tr>
+          </thead>
+        
+          <tbody>
           <tr>
             <td>MinSDKVersion</td>
             <td>{apkinfo.MinSDK_Version}</td>
@@ -68,6 +72,7 @@ function details({apkinfo}) {
             <td>Signature</td>
             <td className='overflow'>{apkinfo.Signature_s}</td>
           </tr>
+          </tbody>
         </table>
       </div>
     </div>

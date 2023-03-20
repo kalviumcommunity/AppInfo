@@ -8,7 +8,7 @@ function History(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/apkinfo")
+    fetch(process.env.REACT_APP_FETCH_URL)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -18,7 +18,7 @@ function History(props) {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/apkinfo/${id}`)
+      .delete(process.env.REACT_APP_FETCH_URL+"/"+id)
       .then(() => {
         setData(apkinfo.filter((item) => item._id !== id));
       })
@@ -28,36 +28,39 @@ function History(props) {
   };
 
 
-  function historydetails(details,id){
+  function historydetails(details, id) {
     console.log(details)
     props.setHistoryDetails(details)
     navigate("/history/details")
   }
 
   return (
-    <>
+    <div id="padadj">
+        <br />
       {apkinfo.map((item, i) => {
         let itemname = item.Application_Name;
 
         if (itemname != undefined) {
           return (
-            <div key={i}>
+            <div key={i}  >
               <div id="toc-2">
-                <table>
+                <table className="histd">
                   <tbody>
                     <tr>
                       <td id="histd">ApplicationName</td>
                       <td id="histd">{itemname}</td>
-                      <td id="histd " className="allignoptions">
-                        <td>
-                          <span id="viewopt" onClick={()=>{historydetails(item,item._id)}}>VIEW</span>
-                        </td>
+                      <td id="histd" className="allignoptions">
+
+                        <span id="viewopt" onClick={() => { historydetails(item, item._id) }}>VIEW</span>
                         <img
                           src={Delete}
                           onClick={() => handleDelete(item._id)}
                           alt=""
                         />
+
+
                       </td>
+
                     </tr>
                   </tbody>
                 </table>
@@ -67,8 +70,8 @@ function History(props) {
         }
       })}
 
-      
-    </>
+
+    </div>
   );
 }
 
