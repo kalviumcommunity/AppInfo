@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+import { useNavigate } from "react-router-dom";
 
 
-function details() {
+
+function details({apkinfo}) {
+
+  const navigate = useNavigate()
 
 
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    const socket = io('http://localhost:4000', {
-      transports: ['websocket', 'polling', 'flashsocket']
-    });
-
-    socket.on('connect', () => {
-      console.log('Connected to socket');
-    });
-
-    socket.on('disconnect', () => {
-      console.log('Disconnected from socket');
-    });
-
-    socket.on('data', (data) => {
-      console.clear();
-      console.log('Received data');
-      setData(data);
-    });
-  }, []);
+  useEffect(()=>{
+    if(!apkinfo.Application_Name){
+      navigate('/')
+    }
+  },[])
 
 
 
@@ -33,53 +21,58 @@ function details() {
     <div id='details outerdiv'>
       <div id='toc'>
         <table>
+          <thead>
           <tr>
-            <td>ApplicationName</td>
-            <td>{data.Application_Name}</td>
+            <th>ApplicationName</th>
+            <th>{apkinfo.Application_Name}</th>
           </tr>
+          </thead>
+        
+          <tbody>
           <tr>
             <td>MinSDKVersion</td>
-            <td>{data.MinSDK_Version}</td>
+            <td>{apkinfo.MinSDK_Version}</td>
           </tr>
           <tr>
             <td>TargetSdkVersion</td>
-            <td>{data.TargetSdk_Version}</td>
+            <td>{apkinfo.TargetSdk_Version}</td>
           </tr>
           <tr>
             <td>versionName</td>
-            <td>{data.version_Name}</td>
+            <td>{apkinfo.version_Name}</td>
           </tr>
           <tr>
             <td>versionCode</td>
-            <td>{data.version_Code}</td>
+            <td>{apkinfo.version_Code}</td>
           </tr>
           <tr>
             <td>SupportScreensizes</td>
-            <td>{data.Support_Screensizes}</td>
+            <td>{apkinfo.Support_Screensizes}</td>
           </tr>
 
           <tr>
             <td>SupportedScreenDensities</td>
-            <td>{data.Supported_ScreenDensities}</td>
+            <td className='overflow'>{apkinfo.Supported_ScreenDensities}</td>
           </tr>
           <tr>
             <td>Features</td>
-            <td>{data.Feature_s}</td>
+            <td className='overflow'>{apkinfo.Feature_s}</td>
           </tr>
           <tr>
             <td>Permissions</td>
-            <td>{data.Permission_s}</td>
+            <td className='overflow'>{apkinfo.Permission_s}</td>
           </tr>
 
           <tr>
             <td>Languages</td>
-            <td>{data.Language_s}</td>
+            <td className='overflow'>{apkinfo.Language_s}</td>
           </tr>
 
           <tr>
             <td>Signature</td>
-            <td>{data.Signature_s}</td>
+            <td className='overflow'>{apkinfo.Signature_s}</td>
           </tr>
+          </tbody>
         </table>
       </div>
     </div>
