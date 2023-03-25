@@ -43,7 +43,7 @@ function History(props) {
     <div id="padadj">
         <br />
       {apkinfo.map((item, i) => {
-        let itemname = item.application_name;
+        let itemname = item.application_Name;
 
         if (itemname != undefined) {
           return (

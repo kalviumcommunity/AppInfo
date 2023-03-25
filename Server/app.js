@@ -6,7 +6,7 @@ const schema = require("./models/schema");
 const app = express();
 app.use(cors());
 
-const data = mongoose.model("aptdatas", schema);
+const data = mongoose.model("apkdetails", schema);
 
 app.get("/apkinfo", (req, res) => {
   data

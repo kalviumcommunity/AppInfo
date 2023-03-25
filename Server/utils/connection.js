@@ -2,7 +2,7 @@ const socketIO = require("socket.io");
 const fs = require("fs");
 const { exec } = require("child_process");
 
-const { dataFuntions } = require("../controllers/postController");
+const { dataFuntions } = require("../parser/compiler");
 
 const io = socketIO({
   cors: {
@@ -24,8 +24,8 @@ function runAapt(applicationName) {
           reject(error);
         } else {
           const str = stdout + "compressed";
-          const res = str.replace(/\s+/g, "");
-          resolve(res);
+          const output = str.replace(/\s+/g, "");
+          resolve(output);
         }
       }
     );
@@ -34,25 +34,25 @@ function runAapt(applicationName) {
 
 
 
-async function render(authId, applicationName, socketId, socket) {
-  const res = await runAapt(applicationName);
+async function renderData(authId, applicationName, socketId, socket) {
+  const data = await runAapt(applicationName);
 
-  const allDatas = dataFuntions(res, authId, applicationName);
+  const apkdata = await dataFuntions(data, authId, applicationName);
   console.log("APK details are sent");
-  io.to(socketId).emit("data", allDatas);
+  io.to(socketId).emit("data", apkdata);
   socket.disconnect(true);
 }
 
 
 
 io.on("connection", (socket) => {
-  socket.on("upload", async (files) => {
-    let authId = files.authId;
+  socket.on("upload", async (datas) => {
+    let authId = datas.authId;
     let applicationName = `app-${socket.id}.apk`;
 
-    await fs.promises.writeFile(`./resources/${applicationName}`, files.file);
+    await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);
 
-    render(authId, applicationName, socket.id, socket);
+    renderData(authId, applicationName, socket.id, socket);
   });
 });
 

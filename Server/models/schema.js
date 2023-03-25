@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-  authId: { type: String, required: false },
-  application_name: { type: String, required: false },
-  minsdk_version: { type: String, required: false },
-  version_name: { type: String, required: false },
-  version_code: { type: String, required: false },
-  package_name: { type: String, required: false },
-  targetSdk_version: { type: String, required: false },
-  support_screensizes: { type: String, required: false },
-  supported_screendensities: { type: String, required: false },
-  feature_s: { type: String, required: false },
-  // permission_s: { type: String, required: false },
-  language_s: { type: String, required: false },
-  signature_s: { type: String, required: false },
+  authId: { type: String, required: true },
+  application_Name: { type: String },
+  minsdkVersion: { type: String },
+  versionName: { type: String },
+  versionCode: { type: String },
+  packageName: { type: String },
+  targetSdkVersion: { type: String },
+  supportScreensizes: { type: String },
+  supportedScreendensities: { type: String },
+  features: { type: String },
+  permissions: { type: String,required:true},
+  languages: { type: String },
+  signatures: { type: String },
 });
 
 module.exports = schema;
