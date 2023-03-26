@@ -1,8 +1,8 @@
 const socketIO = require("socket.io");
 const fs = require("fs");
 const { exec } = require("child_process");
-
 const { dataFuntions } = require("../parser/compiler");
+const commands = require("../enum");
 
 const io = socketIO({
   cors: {
@@ -14,25 +14,19 @@ const io = socketIO({
   maxHttpBufferSize: 1e9, // (upload buffer size has been increased by 1000 MB)
 });
 
-
 function runAapt(applicationName) {
   return new Promise((resolve, reject) => {
-    exec(
-      `cd resources && ./aapt2 dump badging ${applicationName}`,
-      (error, stdout) => {
-        if (error) {
-          reject(error);
-        } else {
-          const str = stdout + "compressed";
-          const output = str.replace(/\s+/g, "");
-          resolve(output);
-        }
+    exec(commands.aaptDump + applicationName, (error, stdout) => {
+      if (error) {
+        reject(error);
+      } else {
+        const str = stdout + "compressed";
+        const output = str.replace(/\s+/g, "");
+        resolve(output);
       }
-    );
+    });
   });
 }
-
-
 
 async function renderData(authId, applicationName, socketId, socket) {
   const data = await runAapt(applicationName);
@@ -43,11 +37,10 @@ async function renderData(authId, applicationName, socketId, socket) {
   socket.disconnect(true);
 }
 
-
-
 io.on("connection", (socket) => {
   socket.on("upload", async (datas) => {
     let authId = datas.authId;
+
     let applicationName = `app-${socket.id}.apk`;
 
     await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);

@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   supportScreensizes: { type: String },
   supportedScreendensities: { type: String },
   features: { type: String },
-  permissions: { type: String,required:true},
+  permissions: { type: String },
   languages: { type: String },
   signatures: { type: String },
 });

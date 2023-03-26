@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const schema = require("./schema");
+const commands = require("../enum");
 
-const url =
-  "mongodb+srv://balajis:hcsnTgKf5YhQ6oGw@cluster1.uzi21wt.mongodb.net/apkdetails";
+const url = commands.mongoUrl;
 
 const apkdetails = mongoose.model("apkdetails", schema);
 
@@ -11,8 +11,6 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB", err));
 
-
-  
 async function mongodb(data) {
   try {
     await apkdetails.create(data);
@@ -20,6 +18,5 @@ async function mongodb(data) {
     console.error("Could not create document", err);
   }
 }
-
 
 module.exports = { apkdetails, mongodb };

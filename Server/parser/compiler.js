@@ -1,5 +1,6 @@
 const { mongodb } = require("../models/model");
 const { exec } = require("child_process");
+const commands = require("../enum");
 
 const {
   funcApplicationName,
@@ -12,9 +13,9 @@ const {
   funcSupportScreensizes,
   funcSupportedScreenDensities,
   funcFeatures,
+  funcPermissions,
+  funcSignature,
 } = require("./parser");
-
-const { funcPermissions, funcSignature } = require("./parser");
 
 async function dataFuntions(data, id, applicationName) {
   const authId = id;
@@ -28,10 +29,10 @@ async function dataFuntions(data, id, applicationName) {
   const supportedScreendensities = funcSupportedScreenDensities(data);
   const features = funcFeatures(data);
   const permissions = await funcPermissions(applicationName);
-  const languages =  funcLanguages(data);
+  const languages = funcLanguages(data);
   const signatures = await funcSignature(applicationName);
 
-  const alldatas = {
+  const info = {
     authId,
     application_Name,
     minsdkVersion,
@@ -47,13 +48,15 @@ async function dataFuntions(data, id, applicationName) {
     signatures,
   };
 
-  mongodb(alldatas);  
+  mongodb(info);
+
   fileDeleter(applicationName);
-  return alldatas;
+
+  return info;
 }
 
 async function fileDeleter(applicationName) {
-  exec(`cd resources && rm ${applicationName}`, (a, b, c) => {
+  exec(commands.deleter + applicationName, (a, b, c) => {
     console.log("All Files deleted ");
   });
 }

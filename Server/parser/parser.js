@@ -1,4 +1,5 @@
 const { exec } = require("child_process");
+const commands = require("../enum");
 
 function funcApplicationName(data) {
   let startIndex = data.indexOf("label=") + 7;
@@ -154,16 +155,13 @@ function funcLanguages(data) {
 async function funcPermissions(applicationName) {
   function permission(applicationName) {
     return new Promise((resolve, reject) => {
-      exec(
-        `cd resources && ./aapt2 dump permissions ${applicationName}`,
-        (error, stdout) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(stdout.toString());
-          }
+      exec(commands.aaptPermission + applicationName, (error, stdout) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(stdout.toString());
         }
-      );
+      });
     });
   }
   try {
@@ -190,16 +188,13 @@ function funcLanguages(data) {
 async function funcSignature(applicationName) {
   function signatures(applicationName) {
     return new Promise((resolve, reject) => {
-      exec(
-        `cd resources && keytool -printcert -jarfile ${applicationName}`,
-        (error, stdout) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(stdout.toString());
-          }
+      exec(commands.keytoolDump + applicationName, (error, stdout) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(stdout.toString());
         }
-      );
+      });
     });
   }
   try {
