@@ -32,3 +32,20 @@ exec() method in the CallOutFuntion() function, which runs a command asynchronou
 io.emit("data", alldatas) in the Datas() function, which emits data to all connected sockets asynchronously.
 
 mongoose.connect() method for connecting to MongoDB, which returns a promise that can be handled asynchronously. However, this part of the code is commented out, so it is not being used at the moment.
+
+
+
+This is a Node.js script that uses various libraries such as Express, Socket.IO, SocketIO-File-Upload, CORS, fs, child_process, and mongoose to create a server that can receive APK files, extract data from them using the aapt2 tool, and store the extracted data in a MongoDB database. The script defines several endpoints for retrieving, deleting, and searching data in the database.
+
+The script starts by importing the required libraries and creating an instance of Express, a server, and a Socket.IO instance. It also defines a schema for storing APK data in MongoDB.
+
+Next, it defines a function for storing data in MongoDB and creates a model for the schema. It also defines several endpoints for retrieving, deleting, and searching data in the database.
+
+Then, it defines a Socket.IO connection listener that listens for "upload" events. When an event is received, the server saves the uploaded APK file to disk and extracts data from it using the aapt2 tool. The extracted data is then stored in an object and emitted to all connected clients using the Socket.IO instance.
+
+Finally, it defines several functions for extracting different types of data from the APK file and combines them into a single object that is stored in the database and emitted to all connected clients. It also defines a function for deleting the uploaded APK file from disk.
+
+
+using async/await can cause the code to pause execution at certain points. When an async function encounters an await expression, the function is paused and the control is returned to the calling function. The event loop continues to run, allowing other code to execute, until the awaited promise is resolved. Once the promise is resolved, the async function resumes execution from where it left off.
+
+Therefore, if there are any lines of code after an await expression in an async function, those lines will not be executed until the awaited promise is resolved and the function resumes execution. This means that the code execution can appear to "stop" or "hang" at the point where the await expression is encountered, although the event loop is still running and executing other code.

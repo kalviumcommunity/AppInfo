@@ -1,25 +1,30 @@
 import Delete from "../Images/history/delete.svg";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
 function History(props) {
+  const { user } = useAuth0();
   const [apkinfo, setData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_FETCH_URL)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        setData(res);
-      });
-  }, []);
+    if (user) {
+      fetch(process.env.REACT_APP_FETCH_URL+"/"+user.sub)
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          setData(res);
+        });
+    }
+  }, [user]);
 
   const handleDelete = (id) => {
     axios
       .delete(process.env.REACT_APP_FETCH_URL+"/"+id)
-      .then(() => {
+      .then((data) => {
+        console.log(data)
         setData(apkinfo.filter((item) => item._id !== id));
       })
       .catch((err) => {
@@ -38,7 +43,7 @@ function History(props) {
     <div id="padadj">
         <br />
       {apkinfo.map((item, i) => {
-        let itemname = item.Application_Name;
+        let itemname = item.application_Name;
 
         if (itemname != undefined) {
           return (

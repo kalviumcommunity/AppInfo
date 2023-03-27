@@ -175,3 +175,11 @@ B.removed submit button and made and onchange event
       "react-app/jest"
     ]
   },
+
+
+  In this updated version, we:
+
+Added a useRef hook to get a reference to the authData div element.
+Added an useEffect hook to add an event listener to the document object. This event listener checks if the clicked element is outside the authData div element. If it is, it sets the authData state to false.
+Passed the authDataRef to the ref attribute of the authData div element so we can get its reference.
+Changed the name of the setauthData state function to setAuthData to follow the convention of using camelCase for function names in JavaScript.

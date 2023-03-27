@@ -10,67 +10,70 @@ function details({apkinfo}) {
 
 
   useEffect(()=>{
-    if(!apkinfo.Application_Name){
-      navigate('/')
+    if(!apkinfo.application_Name){
+        navigate('/')
     }
   },[])
 
 
-
-  return (<> <br /> <br />
+  return (<> 
     <div id='details outerdiv'>
       <div id='toc'>
         <table>
           <thead>
           <tr>
             <th>ApplicationName</th>
-            <th>{apkinfo.Application_Name}</th>
+            <th>{apkinfo.application_Name}</th>
           </tr>
           </thead>
         
           <tbody>
           <tr>
             <td>MinSDKVersion</td>
-            <td>{apkinfo.MinSDK_Version}</td>
+            <td>{apkinfo.minsdkVersion}</td>
           </tr>
           <tr>
             <td>TargetSdkVersion</td>
-            <td>{apkinfo.TargetSdk_Version}</td>
+            <td>{apkinfo.targetSdkVersion}</td>
           </tr>
           <tr>
             <td>versionName</td>
-            <td>{apkinfo.version_Name}</td>
+            <td>{apkinfo.versionName}</td>
           </tr>
           <tr>
             <td>versionCode</td>
-            <td>{apkinfo.version_Code}</td>
+            <td>{apkinfo.versionCode}</td>
           </tr>
+          {/* <tr>
+            <td>Package Name </td>
+            <td>{apkinfo.packageName}</td>
+          </tr> */}
           <tr>
             <td>SupportScreensizes</td>
-            <td>{apkinfo.Support_Screensizes}</td>
+            <td>{apkinfo.supportScreensizes}</td>
           </tr>
 
           <tr>
             <td>SupportedScreenDensities</td>
-            <td className='overflow'>{apkinfo.Supported_ScreenDensities}</td>
+            <td className='overflow'>{apkinfo.supportedScreendensities}</td>
           </tr>
           <tr>
             <td>Features</td>
-            <td className='overflow'>{apkinfo.Feature_s}</td>
+            <td className='overflow'>{apkinfo.features}</td>
           </tr>
           <tr>
             <td>Permissions</td>
-            <td className='overflow'>{apkinfo.Permission_s}</td>
+            <td className='overflow'>{apkinfo.permissions}</td>
           </tr>
 
           <tr>
             <td>Languages</td>
-            <td className='overflow'>{apkinfo.Language_s}</td>
+            <td className='overflow'>{apkinfo.languages}</td>
           </tr>
 
           <tr>
             <td>Signature</td>
-            <td className='overflow'>{apkinfo.Signature_s}</td>
+            <td className='overflow'>{apkinfo.signatures}</td>
           </tr>
           </tbody>
         </table>
@@ -81,3 +84,4 @@ function details({apkinfo}) {
 }
 
 export default details
+
