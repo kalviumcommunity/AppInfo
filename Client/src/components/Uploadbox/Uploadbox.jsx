@@ -1,7 +1,6 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Bodytext from "../bodytext/bodytext";
 import socketIOClient from "socket.io-client";
 import Androidrobot from '../Images/androidrobot.gif'
 import { useAuth0 } from "@auth0/auth0-react";
@@ -53,7 +52,6 @@ function Uploadbox(props) {
       ) :
 
         <>
-          <Bodytext />
 
           <div id="uploaddiv">
             <div id="outerdiv">

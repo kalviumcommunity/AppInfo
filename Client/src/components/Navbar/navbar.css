@@ -1,0 +1,24 @@
+#navspan {
+    color: rgb(0, 0, 0);
+    /* background-color: #1b1d21; */
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 17px;
+  }
+  
+  #navspan:hover {
+    color: #2DAAE9;
+  }
+
+
+  #grideven {
+    display: grid;
+    gap: 40px;
+    grid-auto-flow: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: #1b1d21; */
+    background-color: #ffffff;
+  
+  }

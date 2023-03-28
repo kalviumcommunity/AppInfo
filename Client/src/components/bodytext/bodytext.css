@@ -1,0 +1,48 @@
+.getStarted {
+background-color: rgb(0, 0, 0);
+color: white;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 19px;
+line-height: 25px;
+border-radius: 2px;
+
+padding: 13px 35px;
+cursor: pointer;
+/* width: 9vw;
+height: 5vh; */
+
+
+}
+
+#centertext {
+  
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 76px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+
+  
+  position: relative;
+  width: 38vw;
+
+}
+
+/* @media screen and (max-width: 450px) {
+  #centertext {
+  }
+} */
+
+
+#hometext{
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    flex-direction: column;
+}
+
+

@@ -6,16 +6,21 @@
 
 body {
   /* background-color: #474c54; */
-  background-color: #24272C;
+  /* background-color: #24272C; */
+  background-color: #ffffff;
+
   margin: 0px;
   padding: 0px;
 }
 
 #headerdiv {
+  padding: 9px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1b1d21;
+  /* background-color: #1b1d21; */
+  background-color: #ffffff;
+
   flex-wrap: wrap;
 }
 
@@ -27,31 +32,15 @@ body {
   flex-wrap: wrap;
 }
 
-#grideven {
-  display: grid;
-  gap: 10px;
-  grid-auto-flow: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #1b1d21;
-}
-
 #header1 {
-  display: grid;
-  /* justify-content: center; */
+  /* display: grid;
   grid-auto-flow: column;
-  flex-wrap: wrap;
-}
-
-#navspan {
-  color: rgb(255, 255, 255);
-  background-color: #1b1d21;
-  cursor: pointer;
-}
-
-#navspan:hover {
-  color: #2DAAE9;
+  flex-wrap: wrap; */
+  color: black;
+  font-family: "Inter";
+  line-height: 47px;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 /* #loginbtn {
@@ -63,18 +52,10 @@ body {
   font-size: 1.2rem;
 } */
 
-#centertext {
-  font-size: 35px;
-  color: aliceblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
-
 #outerdiv {
-  background-color: #2D3036;
+  /* background-color: #2D3036; */
+  background-color: #ffffff;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -87,34 +68,34 @@ body {
   border-radius: 30px;
 
   /*  */
-  box-shadow: #2DAAE9 0px 4px 100px 18px;
-  animation: blink 2s infinite alternate;
-
-
+  /* box-shadow: #2DAAE9 0px 4px 100px 18px; */
+  /* animation: blink 2s infinite alternate; */
 }
 
 @keyframes blink {
   from {
-    box-shadow: #2DAAE9 0px 4px 110px 18px;
+    box-shadow: #2daae9 0px 4px 110px 18px;
   }
 
   to {
-    box-shadow: #2D3036 10px 4px 110px 18px;
+    box-shadow: #ffffff 10px 4px 110px 18px;
   }
 }
 
 #largepara {
   font-weight: 1000;
   font-size: 37px;
-  color: #ffffff;
+  /* color: #ffffff; */
+  background-color: #ffffff;
+
   margin: 9px;
 }
 
 #smallpara {
   font-size: 25px;
   /* color: rgba(0, 255, 255, 0.931); */
-  color: #2DAAE9;
-  margin: 19px
+  color: #2daae9;
+  margin: 19px;
 }
 
 #upbutton {
@@ -122,7 +103,8 @@ body {
   font-weight: bold;
 
   color: white;
-  background-color: #000000;
+  /* background-color: #000000; */
+  background-color: #ffffff;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   padding-right: 3.5rem;
@@ -130,14 +112,9 @@ body {
   border-radius: 100px;
 }
 
-
-
 #upbutton:active {
-  border: 1px solid #2DAAE9;
-
+  border: 1px solid #2daae9;
 }
-
-
 
 #uploaddiv {
   display: flex;
@@ -146,27 +123,18 @@ body {
   margin-bottom: 2rem;
 }
 
-
 #dp {
   border-radius: 100%;
   width: 2.7rem;
-
 }
-
 
 #dp:hover {
-  border: 1px solid #2DAAE9;
-
+  border: 1px solid #2daae9;
 }
-
-
 
 input[type="file"] {
   display: none;
 }
-
-
-
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
 
@@ -180,7 +148,6 @@ table {
   text-align: center;
 
   overflow-wrap: break-word;
-
 }
 
 th,
@@ -190,7 +157,6 @@ td {
   overflow: visible;
   background-color: #ffffff;
   font-weight: bolder;
-
 }
 
 /* td {
@@ -203,7 +169,6 @@ td:hover {
   /* text-overflow: ellipsis; */
 }
 
-
 th {
   background-color: #ffffff;
   font-weight: bolder;
@@ -213,15 +178,13 @@ th {
   background-color: #ffffff;
 } */
 
-
-
 .histd {
   padding: 0px;
 }
 
 .allignoptions {
   display: flex;
-  justify-content: space-around ;
+  justify-content: space-around;
   align-items: center;
   height: 40px;
 }
@@ -230,61 +193,54 @@ tr {
   background-color: #ffffff;
 }
 
-#viewopt{
+#viewopt {
   font-size: larger;
-  color: #6E03F6;
+  color: #6e03f6;
 }
 
-#viewopt:hover{
+#viewopt:hover {
   cursor: pointer;
   color: #6932b1;
-
 }
 
-#padadj{
+#padadj {
   padding: 10px 0px 0px 0px;
 }
 
-.sub-menu-wrap{
+.sub-menu-wrap {
   /* position:absolute; */
   top: 100%;
   right: 100%;
   width: 300px;
   overflow: hidden;
-
 }
 
-.sub-menu{
+.sub-menu {
   background-color: #ffffff;
   padding: 20px;
   margin: 10px;
 }
 
-.user-info{
+.user-info {
   display: flex;
   align-items: center;
 }
 
-hr{
+hr {
   color: #000000;
   height: 55px;
 }
 
-
 @media screen and (max-width: 450px) {
   #headerdiv {
     justify-content: space-around;
-    
-}
-#outerdiv {
- 
-  height:462px;
-
+  }
+  #outerdiv {
+    height: 462px;
+  }
 }
 
-}
-
-#androidbot{
+#androidbot {
   margin-top: 5px;
   height: 90vh;
 }

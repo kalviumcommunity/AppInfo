@@ -124,3 +124,30 @@
 }
 
 
+.getStartedlogin{
+  background-color: rgb(0, 0, 0);
+color: white;
+font-family: "Inter", "Helvetica";
+font-size : 16px;
+font-weight: 700;
+left: 24px;
+letter-spacing: 0;
+border-radius: 3px;
+line-height: normal;
+padding: 15px 24px;
+cursor: pointer;
+}
+
+#profiledpdiv{
+  display: grid;
+  gap: 35px;
+  grid-auto-flow: column;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+
+#signIn{
+  cursor: pointer;
+}
