@@ -7,10 +7,10 @@ function bodytext() {
 
   return (
     <div id="hometext">
+      {/* <br />
       <br />
       <br />
-      <br />
-      <br />
+      <br /> */}
       <div id="centertext">
         <> Get the inside scoop on all your favourite Android apps!</>
       </div>

@@ -1,0 +1,74 @@
+.labeltxt {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+/*  */
+
+#cloudlogo {
+  height: 150px;
+  width: 150px;
+}
+
+#format {
+  font-family: "Inter", Helvetica;
+
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+#dndbutton {
+  font-family: "Inter";
+  color: #2daae9;
+  font-weight: 10;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+#dndbutton:hover{
+  color: black;
+
+}
+#minilabel {
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.dnd {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 5px dashed #e4e4e4;
+  width: 100%;
+  height: 92%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 11vh 24vw;
+}
+
+.uploadwindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 450px) {
+   .dnd{
+    padding: 11vh 15vw;
+   }
+  }

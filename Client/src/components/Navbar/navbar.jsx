@@ -21,6 +21,7 @@ const Navbar = (props) => {
 
   //routes
   function navigatetohistory() {
+    console.log(history)
     navigate("/history");
   }
   function navigatetoguides() {
@@ -35,7 +36,7 @@ const Navbar = (props) => {
       <header className="headerdiv" id="headerdiv">
         <div className="header1" id="header1">
           {/* <img src={logo} alt="" onClick={() => onClickOfLogo()} /> */}
-            <h1 id="header1" >APK INFO</h1>
+            <h1 id="header1"  >APK INFO</h1>
         </div>
 
         <div id="grideven" className="grideven">
