@@ -10,6 +10,9 @@
     color: #2DAAE9;
   }
 
+  .logodp{
+    cursor: pointer;
+  }
 
   #grideven {
     display: grid;
