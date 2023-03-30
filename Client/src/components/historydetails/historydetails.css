@@ -1,0 +1,64 @@
+#logdetailsHeading{
+  font-family: "Inter", Helvetica;
+  text-align: left;
+
+  border: none;
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+#logstyle{
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#logDetailsAppName{
+    font-weight: 700;
+    font-size: 24px;
+  font-family: "Inter", Helvetica;
+  text-align: left;
+
+  border: none;
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 17px;
+
+
+}
+
+table{
+    /* background-color: #d9d9d9; */
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ td:nth-child(2) {
+    border-left: 1px solid black;
+    
+  }
+  
+  tr td{
+  background-color: #ddd;
+
+  }
+
+
+  #logDetailsTimeStamp{
+    font-weight: 400;
+    font-size: 14px;
+  font-family: "Inter", Helvetica;
+  text-align: left;
+  font-style: italic;
+
+  border: none;
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 17px;
+  }
