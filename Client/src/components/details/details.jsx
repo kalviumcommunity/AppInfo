@@ -22,8 +22,8 @@ function details({apkinfo}) {
         <table>
           <thead>
           <tr>
-            <th>ApplicationName</th>
-            <th>{apkinfo.application_Name}</th>
+            <td>ApplicationName</td>
+            <td>{apkinfo.application_Name}</td>
           </tr>
           </thead>
         

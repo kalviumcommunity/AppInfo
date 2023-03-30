@@ -12,8 +12,6 @@ export default function Login() {
 
   const authDataRef = useRef(null);
 
-
-
   useEffect(() => {
     function handleClickOutside(event) {
       if (authDataRef.current && !authDataRef.current.contains(event.target)) {
@@ -35,10 +33,13 @@ export default function Login() {
   return (
     <div className="login-container">
       {isAuthenticated ? (
-
-        <div className="profile-container" onClick={() =>{ setAuthData(!authData); }}>
+        <div
+          className="profile-container"
+          onClick={() => {
+            setAuthData(!authData);
+          }}
+        >
           <img src={user.picture} alt="" id="dp" />
-
         </div>
       ) : isLoading ? (
         <div id="loading">
@@ -46,7 +47,14 @@ export default function Login() {
         </div>
       ) : (
         <span id="profiledpdiv" onClick={loginWithRedirect}>
-          <img src={Loading} id="dp" alt="" />
+          <div id="signIn">
+            Sign In
+          </div>
+          <button className="getStartedlogin" onClick={loginWithRedirect}>
+            Sign Up
+          </button>
+
+          {/* <img src={Loading} id="dp" alt="" /> */}
         </span>
       )}
 
