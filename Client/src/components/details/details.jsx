@@ -19,61 +19,61 @@ function details({apkinfo}) {
   return (<> 
     <div id='details outerdiv'>
       <div id='toc'>
-        <table>
+        <table id="tablebottompadding">
           <thead>
           <tr>
-            <td>ApplicationName</td>
-            <td>{apkinfo.application_Name}</td>
+            <td id="tableborder">ApplicationName</td>
+            <td id="tableborder">{apkinfo.application_Name}</td>
           </tr>
           </thead>
         
           <tbody>
           <tr>
-            <td>MinSDKVersion</td>
-            <td>{apkinfo.minsdkVersion}</td>
+            <td id="tableborder">MinSDKVersion</td>
+            <td id="tableborder">{apkinfo.minsdkVersion}</td>
           </tr>
           <tr>
-            <td>TargetSdkVersion</td>
-            <td>{apkinfo.targetSdkVersion}</td>
+            <td id="tableborder">TargetSdkVersion</td>
+            <td id="tableborder">{apkinfo.targetSdkVersion}</td>
           </tr>
           <tr>
-            <td>versionName</td>
-            <td>{apkinfo.versionName}</td>
+            <td id="tableborder">versionName</td>
+            <td id="tableborder">{apkinfo.versionName}</td>
           </tr>
           <tr>
-            <td>versionCode</td>
-            <td>{apkinfo.versionCode}</td>
+            <td id="tableborder">versionCode</td>
+            <td id="tableborder">{apkinfo.versionCode}</td>
           </tr>
           {/* <tr>
             <td>Package Name </td>
             <td>{apkinfo.packageName}</td>
           </tr> */}
           <tr>
-            <td>SupportScreensizes</td>
-            <td>{apkinfo.supportScreensizes}</td>
+            <td id="tableborder">SupportScreensizes</td>
+            <td id="tableborder">{apkinfo.supportScreensizes}</td>
           </tr>
 
           <tr>
-            <td>SupportedScreenDensities</td>
-            <td className='overflow'>{apkinfo.supportedScreendensities}</td>
+            <td id="tableborder">SupportedScreenDensities</td>
+            <td id="tableborder" className='overflow'>{apkinfo.supportedScreendensities}</td>
           </tr>
           <tr>
-            <td>Features</td>
-            <td className='overflow'>{apkinfo.features}</td>
+            <td id="tableborder">Features</td>
+            <td  id="tableborder"className='overflow'>{apkinfo.features}</td>
           </tr>
           <tr>
-            <td>Permissions</td>
-            <td className='overflow'>{apkinfo.permissions}</td>
-          </tr>
-
-          <tr>
-            <td>Languages</td>
-            <td className='overflow'>{apkinfo.languages}</td>
+            <td id="tableborder">Permissions</td>
+            <td  id="tableborder"className='overflow'>{apkinfo.permissions}</td>
           </tr>
 
           <tr>
-            <td>Signature</td>
-            <td className='overflow'>{apkinfo.signatures}</td>
+            <td id="tableborder">Languages</td>
+            <td id="tableborder" className='overflow'>{apkinfo.languages}</td>
+          </tr>
+
+          <tr>
+            <td id="tableborder">Signature</td>
+            <td  id="tableborder"className='overflow'>{apkinfo.signatures}</td>
           </tr>
           </tbody>
         </table>

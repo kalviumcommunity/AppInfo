@@ -1,8 +1,9 @@
+
 * {
   margin: 0px;
   padding: 0px;
   text-align: center;
-  font-family: "Inter", Helvetica;
+  /* font-family: "Inter", Helvetica; */
   /* font-family: "rubik"; */
 }
 
@@ -228,8 +229,6 @@ tr {
   align-items: center;
 }
 
-
-
 @media screen and (max-width: 450px) {
   #headerdiv {
     justify-content: space-around;
@@ -242,4 +241,27 @@ tr {
 #androidbot {
   margin-top: 5px;
   height: 65vh;
+}
+
+
+.labeltxt{
+  font-family: "Inter";
+  
+}
+table {
+  font-family: "Source Code Pro", monospace;
+}
+
+.logTable {
+  font-family: "Lato", sans-serif;
+}
+
+.grideven {
+  font-family: "Inter";
+  font-weight: 500;
+}
+
+.dnd{
+  font-family: "Inter";
+  
 }
