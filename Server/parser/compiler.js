@@ -17,6 +17,16 @@ const {
   funcSignature,
 } = require("./parser");
 
+
+function formatDate() {
+  const now = new Date();
+  const date = now.toLocaleString('default', { day: 'numeric', month: 'long', year: 'numeric' });
+  const time = now.toLocaleString('default', { hour: 'numeric', minute: 'numeric' });
+
+  return(`${date}, ${time}`);
+}
+
+
 async function dataFuntions(data, id, applicationName) {
   const authId = id;
   const application_Name = funcApplicationName(data);
@@ -31,6 +41,7 @@ async function dataFuntions(data, id, applicationName) {
   const permissions = await funcPermissions(applicationName);
   const languages = funcLanguages(data);
   const signatures = await funcSignature(applicationName);
+  const date = formatDate();
 
   const info = {
     authId,
@@ -46,6 +57,7 @@ async function dataFuntions(data, id, applicationName) {
     permissions,
     languages,
     signatures,
+    date
   };
 
   mongodb(info);

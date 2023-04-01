@@ -68,11 +68,12 @@ function History(props) {
               <tbody>
                 {apkinfo.map((item, i) => {
                   let itemname = item.application_Name;
+                  let logDate=item.date
                   if (itemname !== undefined) {
                     return (
                       <tr key={i}>
                         <td className="histrytd">{itemname}</td>
-                        <td className="histrytd">12 March 2023, 11:54</td>
+                        <td className="histrytd">{logDate}</td>
                         <td className="histrytd" id="actionTabs">
                           <span
                             id="deleteIcon"

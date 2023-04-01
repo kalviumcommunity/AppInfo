@@ -34,8 +34,8 @@ const Navbar = (props) => {
     <>
       <header className="headerdiv" id="headerdiv">
         <div className="header1" id="header1">
-          {/* <img src={logo} alt="" onClick={() => onClickOfLogo()} /> */}
-            <h1 id="header1"  >APK INFO</h1>
+           <img src={logo} alt="" onClick={() => onClickOfLogo()} />
+           {/* <h1 id="header1" onClick={() => onClickOfLogo()} >APK INFO</h1>*/}
         </div>
 
         <div id="grideven" className="grideven">
