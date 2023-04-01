@@ -13,8 +13,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const [apkinfo, setApkinfo] = useState({});
+
   const [historyDetails, setHistoryDetails] = useState();
+
   console.log(process.env.REACT_APP_AUTH0_CLIENT_ID);
+  
   const { user } = useAuth0();
 
   const { isAuthenticated, isLoading } = useAuth0();

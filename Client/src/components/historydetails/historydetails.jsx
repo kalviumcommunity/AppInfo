@@ -26,7 +26,7 @@ function historydetails(props) {
       <div id="logDetailsAppName">{props.historyDetails.application_Name} (Application Name)</div>
 
       <div id="logDetailsTimeStamp" >
-        <span>Report generated on 12 March 2023, 11:54</span>
+        <span>{props.historyDetails.date}</span>
       </div>
 
 
