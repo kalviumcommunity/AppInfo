@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Login.css";
 import Profile from "./Images/profile.jpg";
-import Loading from "./Images/loading/profileload.gif";
+import {ReactComponent as LogoutIcon} from "./Images/header/logout.svg";
+import Logout from "./Images/header/logout.svg";
 
 export default function Login() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
@@ -47,9 +48,7 @@ export default function Login() {
         </div>
       ) : (
         <span id="profiledpdiv" onClick={loginWithRedirect}>
-          <div id="signIn">
-            Sign In
-          </div>
+          <div id="signIn">Sign In</div>
           <button className="getStartedlogin" onClick={loginWithRedirect}>
             Sign Up
           </button>
@@ -62,9 +61,15 @@ export default function Login() {
         <div className="logoutWindow" ref={authDataRef}>
           <div className="Window-text">{user.name}</div>
           <div className="Window-btn-container">
-            <button className="Window-btn" onClick={handleLogout}>
-              Logout
-            </button>
+            <div className="Window-btn"  onClick={handleLogout} >
+              <p> Logout</p>
+              <LogoutIcon id="logoutIcon" />
+            </div>
+
+            {/* <button className="Window-btn" onClick={handleLogout}>
+
+               
+            </button> */}
           </div>
         </div>
       )}

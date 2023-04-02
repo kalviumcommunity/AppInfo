@@ -34,7 +34,7 @@ const Navbar = (props) => {
     <>
       <header className="headerdiv" id="headerdiv">
         <div className="header1" id="header1">
-           <img src={logo} alt="" onClick={() => onClickOfLogo()} />
+           <img src={logo} alt="" onClick={() => onClickOfLogo()} id="logo"/>
            {/* <h1 id="header1" onClick={() => onClickOfLogo()} >APK INFO</h1>*/}
         </div>
 
@@ -45,7 +45,7 @@ const Navbar = (props) => {
             </span>
           ) : isLoading ? (
             <span id="navspan" onClick={() => navigatetohistory()}>
-              ...
+              <></>
             </span>
           ) : (
             <></>

@@ -63,10 +63,6 @@ th {
   padding: 2px;
 }
 
-#internetLoading {
-  padding-top: 30vh;
-  font-size: 18px;
-}
 
 th {
   background-color: #fbf6ff;
@@ -107,4 +103,17 @@ th {
   font-size: 16.5px;
   border-radius: 2px;
   color: #13c333;
+}
+
+
+
+#viewbtn:active {
+  color: #08681d;
+
+}
+
+
+
+#viewbtw {
+  padding-left: 28px;
 }

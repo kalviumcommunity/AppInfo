@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "./Uploadbox.css";
 import { VscCloudUpload } from "react-icons/vsc";
 import { useDropzone } from "react-dropzone";
-
+import LoadingText from "../loading/loading";
 export const ApkDetails = React.createContext();
 
 function Uploadbox(props) {
@@ -55,7 +55,7 @@ function Uploadbox(props) {
       {loading ? (
         <div id="loader1">
           <img src={Androidrobot} id="androidbot" alt="" />
-          <p>Analyzing your file<span class="loader__dot">.</span><span class="loader__dot">..</span></p>
+          <p>Analyzing your file<span className="loader__dot">.</span><span className="loader__dot">..</span></p>
         </div>
       ) : (
         <div className="uploadwindow">

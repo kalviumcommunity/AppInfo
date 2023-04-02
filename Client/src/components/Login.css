@@ -37,15 +37,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   color: black;
   padding: 1.3rem;
   position: absolute;
   font-size: 1rem;
-  background-color: rgb(0, 191, 209);
+  /* background-color: rgb(0, 191, 209); */
   /* top: rem; */
   right: 150px;
 }
@@ -55,6 +55,9 @@
 
 .Window-btn {
   color: black;
+  background-color: white;  
+  border: 0px;
+  margin: 3px;
 }
 
 
@@ -89,7 +92,7 @@
   padding: .5rem;
   position: absolute;
   font-size: 1rem;
-  background-color: rgba(0, 192, 209, 0.658);
+  /* background-color: rgba(0, 192, 209, 0.658); */
   top: 60px;
   right: 18px;
 }
@@ -102,6 +105,8 @@
 
 .Window-btn {
   color: black;
+  display: flex;
+flex-direction: row;
 }
 
 @media (max-width: 480px) {
@@ -152,15 +157,24 @@ cursor: pointer;
   cursor: pointer;
 }
 
-@keyframes blink {100% { color: transparent }}
-.loader__dot { animation: 1s blink infinite }
-.loader__dot:nth-child(2) { animation-delay: 250ms }
-.loader__dot:nth-child(3) { animation-delay: 500ms }
-
 
 #loader1{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+
+#logoutIcon{
+  width: 32px;
+  height: 20px;
+}
+
+.Window-btn:hover path {
+  fill: red;
+}
+
+.Window-btn:hover{
+  color: red;
 }

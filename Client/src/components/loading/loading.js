@@ -1,11 +1,13 @@
 import React from 'react'
-import Loading from '../Images/loading/profileload.gif'
 
 function loading() {
   return (
     <div>
-        <img src={Loading} alt="" />
+    <div id="internetLoading">
+      Loading<span className="loader__dot">.</span>
+      <span className="loader__dot">..</span>
     </div>
+  </div>
   )
 }
 
