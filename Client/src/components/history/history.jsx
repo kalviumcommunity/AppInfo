@@ -4,6 +4,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import "./history.css";
 import Loading from "../Images/loading/docload.gif";
+import { ReactComponent as DeleteIcon } from "../Images/history/delete.svg";
+import LoadingText from "../loading/loading";
 
 function History(props) {
   const { user, isLoading } = useAuth0();
@@ -47,10 +49,8 @@ function History(props) {
         <p id="logHeading">My Logs</p>
         {isLoading ? (
           <div>
-            <div id="internetLoading">
-              Loading<span className="loader__dot">.</span>
-              <span className="loader__dot">..</span>
-            </div>
+            <LoadingText />
+           
           </div>
         ) : loading ? (
           <img src={Loading} alt="" />
@@ -59,28 +59,22 @@ function History(props) {
             <hr id="historyHR" />
             <table className="logTable">
               <thead id="tablehead">
-                <tr>
+                <tr className="bottomborder">
                   <th id="tableheadtd">Application Name</th>
                   <th id="tableheadtd">Report generated on</th>
-                  <th id="tableheadtd">Action</th>
+                  <th id="tableheadtd">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {apkinfo.map((item, i) => {
                   let itemname = item.application_Name;
-                  let logDate=item.date
+                  let logDate = item.date;
                   if (itemname !== undefined) {
                     return (
-                      <tr key={i}>
+                      <tr key={i} className="bottomborders">
                         <td className="histrytd">{itemname}</td>
                         <td className="histrytd">{logDate}</td>
                         <td className="histrytd" id="actionTabs">
-                          <span
-                            id="deleteIcon"
-                            onClick={() => handleDelete(item._id)}
-                          >
-                            Delete Log
-                          </span>
                           <span
                             id="viewbtn"
                             onClick={() => {
@@ -88,6 +82,14 @@ function History(props) {
                             }}
                           >
                             View
+                          </span>
+                          <span id="viewbtw"></span>
+                          <span
+                            id="deleteIcon"
+                            onClick={() => handleDelete(item._id)}
+                          >
+                            <DeleteIcon />
+                      
                           </span>
                         </td>
                       </tr>

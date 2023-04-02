@@ -6,7 +6,8 @@ import Androidrobot from "../Images/androidrobot.gif";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Uploadbox.css";
 import { VscCloudUpload } from "react-icons/vsc";
-
+import { useDropzone } from "react-dropzone";
+import LoadingText from "../loading/loading";
 export const ApkDetails = React.createContext();
 
 function Uploadbox(props) {
@@ -40,12 +41,21 @@ function Uploadbox(props) {
   };
 
 
+  const onDrop = useCallback(acceptedFiles => {
+    console.log(acceptedFiles);
+    handleFileSelect(acceptedFiles[0]);
+    // Do something with the files
+  }, [])
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+
+
   return (
     <>
       {loading ? (
         <div id="loader1">
           <img src={Androidrobot} id="androidbot" alt="" />
-          <p>Analyzing your file<span class="loader__dot">.</span><span class="loader__dot">..</span></p>
+          <p>Analyzing your file<span className="loader__dot">.</span><span className="loader__dot">..</span></p>
         </div>
       ) : (
         <div className="uploadwindow">
@@ -53,7 +63,7 @@ function Uploadbox(props) {
             Get the inside scoop on all your favourite Android apps!
           </p>
 
-          <div className="dnd-container">
+          <div className="dnd-container" {...getRootProps()} >
             <div className="dnd">
               <VscCloudUpload id="cloudlogo" />
               <p id="minilabel">Drag & drop to upload</p>

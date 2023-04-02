@@ -33,9 +33,16 @@
 
 table{
     /* background-color: #d9d9d9; */
-    border: 1px solid black;
+    border: 1px solid #989898;
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+#tableborder{
+
+  border: 1px solid #989898;
+
+
 }
 
  td:nth-child(2) {
@@ -44,8 +51,8 @@ table{
   }
   
   tr td{
-  background-color: #ddd;
-
+    background-color: #F7F7F7;
+    text-align: left;
   }
 
 
@@ -62,3 +69,7 @@ table{
   margin-right: auto;
   padding-top: 17px;
   }
+
+ #tablebottompadding{
+  margin-bottom: 20px;
+ }
