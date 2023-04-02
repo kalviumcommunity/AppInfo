@@ -124,7 +124,7 @@ input[type="file"] {
 /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 table {
-  width: 100%;
+  width: 80vw;
   padding: 10px;
   max-width: 93.75rem;
   margin: auto;
@@ -257,4 +257,9 @@ table {
 #analyzing {
   font-size: 18px;
   font-family: "rubik";
+}
+
+
+#toc{
+ padding: 14px; 
 }

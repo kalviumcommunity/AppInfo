@@ -51,6 +51,7 @@
 }
 
 .uploadwindow {
+  margin-top: 12vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,3 +73,16 @@
     padding: 11vh 15vw;
    }
   }
+
+
+
+ 
+
+  @media (max-width: 480px) {
+    
+.uploadwindow {
+  margin-top: 8vh;
+}
+  
+  } 
+  
