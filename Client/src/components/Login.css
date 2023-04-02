@@ -177,4 +177,5 @@ cursor: pointer;
 
 .Window-btn:hover{
   color: red;
+  cursor: pointer;
 }
