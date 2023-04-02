@@ -1,9 +1,11 @@
 wront format upload 
 clean code 
 folder structure
-mobile responsive
+cursor
+date and time 
 logo
 how to use
 profile creation
 readme 
 hosting
+logout windows (overlaps)
