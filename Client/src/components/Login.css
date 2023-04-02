@@ -58,6 +58,7 @@
   background-color: white;  
   border: 0px;
   margin: 3px;
+  font-size: 14px;
 }
 
 
@@ -167,8 +168,8 @@ cursor: pointer;
 
 
 #logoutIcon{
-  width: 32px;
-  height: 20px;
+  width: 24px;
+  height: 18px;
 }
 
 .Window-btn:hover path {

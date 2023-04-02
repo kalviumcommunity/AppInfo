@@ -238,7 +238,6 @@ table {
   padding-top: 30vh;
   font-size: 18px;
   font-family: "rubik";
-  text-align: center;
 }
 
 @keyframes blink {
@@ -254,4 +253,8 @@ table {
 }
 .loader__dot:nth-child(3) {
   animation-delay: 500ms;
+}
+#analyzing {
+  font-size: 18px;
+  font-family: "rubik";
 }
