@@ -8,6 +8,8 @@ import "./Uploadbox.css";
 import { VscCloudUpload } from "react-icons/vsc";
 import { useDropzone } from "react-dropzone";
 import LoadingText from "../loading/loading";
+
+
 export const ApkDetails = React.createContext();
 
 function Uploadbox(props) {
@@ -21,17 +23,17 @@ function Uploadbox(props) {
   useEffect(() => {
     setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL));
 
-    console.log("useffect" ,socket);
+    console.log("useffect", socket);
   }, []);
 
-  const handleFileSelect = ( file) => {
+  const handleFileSelect = (file) => {
     setLoading(true); // Set loading state to true
     const message = user.sub;
     const data = {
       file: file,
       authId: message,
     };
-    console.log("handlefileselect" ,socket);
+    console.log("handlefileselect", socket);
     socket.emit("upload", data);
     console.log("File Emitting through Upload Button");
 
@@ -49,7 +51,11 @@ function Uploadbox(props) {
     // Do something with the files
   }, [socket]);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop, accept: {
+      accept: 'application/octet-stream'
+    }
+  });
 
   return (
     <>
@@ -72,7 +78,7 @@ function Uploadbox(props) {
               <VscCloudUpload id="cloudlogo" />
               <p id="minilabel">Drag & drop to upload</p>
               <label>
-                {socket && <div {...getInputProps()} /> }
+                {socket && <div {...getInputProps()} />}
                 <p id="dndbutton">or browse</p>
               </label>
 
