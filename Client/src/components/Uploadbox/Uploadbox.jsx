@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState ,useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import socketIOClient from "socket.io-client";
 import Androidrobot from "../Images/androidrobot.gif";
@@ -20,15 +20,18 @@ function Uploadbox(props) {
 
   useEffect(() => {
     setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL));
+
+    console.log("useffect" ,socket);
   }, []);
 
-  const handleFileSelect = (e) => {
+  const handleFileSelect = ( file) => {
     setLoading(true); // Set loading state to true
     const message = user.sub;
     const data = {
-      file: e.target.files[0],
+      file: file,
       authId: message,
     };
+    console.log("handlefileselect" ,socket);
     socket.emit("upload", data);
     console.log("File Emitting through Upload Button");
 
@@ -40,22 +43,23 @@ function Uploadbox(props) {
     });
   };
 
-
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
     handleFileSelect(acceptedFiles[0]);
     // Do something with the files
-  }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+  }, [socket]);
 
-
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <>
       {loading ? (
         <div id="loader1">
           <img src={Androidrobot} id="androidbot" alt="" />
-          <p id="analyzing">Analyzing your file<span className="loader__dot">.</span><span className="loader__dot">..</span></p>
+          <p id="analyzing">
+            Analyzing your file<span className="loader__dot">.</span>
+            <span className="loader__dot">..</span>
+          </p>
         </div>
       ) : (
         <div className="uploadwindow">
@@ -63,12 +67,12 @@ function Uploadbox(props) {
             Get the inside scoop on all your favourite Android apps!
           </p>
 
-          <div className="dnd-container" {...getRootProps()} >
+          <div className="dnd-container" {...getRootProps()}>
             <div className="dnd">
               <VscCloudUpload id="cloudlogo" />
               <p id="minilabel">Drag & drop to upload</p>
               <label>
-                <input accept=".apk" type="file" onChange={handleFileSelect} />
+                {socket && <div {...getInputProps()} /> }
                 <p id="dndbutton">or browse</p>
               </label>
 
