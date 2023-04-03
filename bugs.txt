@@ -1,0 +1,11 @@
+wront format upload 
+clean code 
+folder structure
+cursor
+date and time 
+logo
+how to use
+profile creation
+readme 
+hosting
+logout windows (overlaps)

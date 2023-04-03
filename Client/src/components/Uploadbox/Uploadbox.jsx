@@ -55,7 +55,7 @@ function Uploadbox(props) {
       {loading ? (
         <div id="loader1">
           <img src={Androidrobot} id="androidbot" alt="" />
-          <p>Analyzing your file<span className="loader__dot">.</span><span className="loader__dot">..</span></p>
+          <p id="analyzing">Analyzing your file<span className="loader__dot">.</span><span className="loader__dot">..</span></p>
         </div>
       ) : (
         <div className="uploadwindow">

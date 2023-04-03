@@ -18,7 +18,7 @@ const {
 } = require("./parser");
 
 
-function formatDate() {
+function currentDate() {
   const now = new Date();
   const date = now.toLocaleString('default', { day: 'numeric', month: 'long', year: 'numeric' });
   const time = now.toLocaleString('default', { hour: 'numeric', minute: 'numeric' });
@@ -41,7 +41,7 @@ async function dataFuntions(data, id, applicationName) {
   const permissions = await funcPermissions(applicationName);
   const languages = funcLanguages(data);
   const signatures = await funcSignature(applicationName);
-  const date = formatDate();
+  const date = currentDate();
 
   const info = {
     authId,

@@ -1,16 +1,16 @@
-
 * {
   margin: 0px;
   padding: 0px;
   text-align: center;
-  /* font-family: "Inter", Helvetica; */
-  /* font-family: "rubik"; */
+}
+:root {
+  --pure-white: #ffffff;
+  --pure-black: #000000;
+  --highlight-blue: #2daae9;
 }
 
 body {
-  /* background-color: #474c54; */
-  /* background-color: #24272C; */
-  background-color: #ffffff;
+  background-color: var(--pure-white);
 
   margin: 0px;
   padding: 0px;
@@ -21,9 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #1b1d21; */
-  background-color: #ffffff;
-
+  background-color: var(--pure-white);
   flex-wrap: wrap;
 }
 
@@ -36,60 +34,40 @@ body {
 }
 
 #header1 {
-  /* display: grid;
-  grid-auto-flow: column;
-  flex-wrap: wrap; */
-  color: black;
+  color: var(--pure-black);
   font-family: "Inter";
   line-height: 47px;
   font-size: 32px;
   font-weight: 700;
 }
 
-/* #loginbtn {
-  background-color: #1b1d21;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid cyan;
-  font-size: 1.2rem;
-} */
-
 #outerdiv {
-  /* background-color: #2D3036; */
-  background-color: #ffffff;
+  background-color: var(--pure-white);
 
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* border: solid rgb(255, 255, 255) 3px; */
-  /* border: dashed 4.5px #ffffff; */
   width: 80%;
   height: 350px;
   padding: 15px;
   border-radius: 30px;
-
-  /*  */
-  /* box-shadow: #2DAAE9 0px 4px 100px 18px; */
-  /* animation: blink 2s infinite alternate; */
 }
 
 @keyframes blink {
   from {
-    box-shadow: #2daae9 0px 4px 110px 18px;
+    box-shadow: var(--highlight-blue) 0px 4px 110px 18px;
   }
 
   to {
-    box-shadow: #ffffff 10px 4px 110px 18px;
+    box-shadow: var(--pure-white) 10px 4px 110px 18px;
   }
 }
 
 #largepara {
   font-weight: 1000;
   font-size: 37px;
-  /* color: #ffffff; */
-  background-color: #ffffff;
+  background-color: var(--pure-white);
 
   margin: 9px;
 }
@@ -97,7 +75,7 @@ body {
 #smallpara {
   font-size: 25px;
   /* color: rgba(0, 255, 255, 0.931); */
-  color: #2daae9;
+  color: var(--highlight-blue);
   margin: 19px;
 }
 
@@ -107,7 +85,7 @@ body {
 
   color: white;
   /* background-color: #000000; */
-  background-color: #ffffff;
+  background-color: var(--pure-white);
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   padding-right: 3.5rem;
@@ -116,7 +94,7 @@ body {
 }
 
 #upbutton:active {
-  border: 1px solid #2daae9;
+  border: 1px solid var(--highlight-blue);
 }
 
 #uploaddiv {
@@ -131,12 +109,12 @@ body {
   width: 2.7rem;
 }
 
-#logo{
+#logo {
   cursor: pointer;
 }
 
 #dp:hover {
-  border: 1px solid #2daae9;
+  border: 1px solid var(--highlight-blue);
 }
 
 input[type="file"] {
@@ -146,7 +124,7 @@ input[type="file"] {
 /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 table {
-  width: 100%;
+  width: 80vw;
   padding: 10px;
   max-width: 93.75rem;
   margin: auto;
@@ -162,7 +140,7 @@ td {
   padding: 1.5rem;
   white-space: normal;
   overflow: visible;
-  background-color: #ffffff;
+  background-color: var(--pure-white);
   font-weight: bolder;
 }
 
@@ -177,7 +155,7 @@ td:hover {
 }
 
 th {
-  background-color: #ffffff;
+  background-color: var(--pure-white);
   font-weight: bolder;
 }
 
@@ -197,17 +175,7 @@ th {
 }
 
 tr {
-  background-color: #ffffff;
-}
-
-#viewopt {
-  font-size: larger;
-  color: #6e03f6;
-}
-
-#viewopt:hover {
-  cursor: pointer;
-  color: #6932b1;
+  background-color: var(--pure-white);
 }
 
 #padadj {
@@ -215,7 +183,6 @@ tr {
 }
 
 .sub-menu-wrap {
-  /* position:absolute; */
   top: 100%;
   right: 100%;
   width: 300px;
@@ -223,7 +190,7 @@ tr {
 }
 
 .sub-menu {
-  background-color: #ffffff;
+  background-color: var(--pure-white);
   padding: 20px;
   margin: 10px;
 }
@@ -247,10 +214,8 @@ tr {
   height: 65vh;
 }
 
-
-.labeltxt{
+.labeltxt {
   font-family: "Inter";
-  
 }
 table {
   font-family: "Source Code Pro", monospace;
@@ -265,20 +230,36 @@ table {
   font-weight: 500;
 }
 
-.dnd{
+.dnd {
   font-family: "Inter";
-  
 }
 
 #internetLoading {
   padding-top: 30vh;
   font-size: 18px;
   font-family: "rubik";
-  text-align: center;
 }
 
-@keyframes blink {100% { color: transparent }}
-.loader__dot { animation: 1s blink infinite }
-.loader__dot:nth-child(2) { animation-delay: 250ms }
-.loader__dot:nth-child(3) { animation-delay: 500ms }
+@keyframes blink {
+  100% {
+    color: transparent;
+  }
+}
+.loader__dot {
+  animation: 1s blink infinite;
+}
+.loader__dot:nth-child(2) {
+  animation-delay: 250ms;
+}
+.loader__dot:nth-child(3) {
+  animation-delay: 500ms;
+}
+#analyzing {
+  font-size: 18px;
+  font-family: "rubik";
+}
 
+
+#toc{
+ padding: 14px; 
+}

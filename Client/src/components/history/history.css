@@ -23,12 +23,6 @@ th {
   border-spacing: 0;
 }
 
-.logTable {
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 0px solid #d9d9d9;
-  text-align: left;
-}
 
 #logHeading {
   font-weight: 700;
@@ -42,16 +36,7 @@ th {
   margin-right: auto;
 }
 
-#historyHR {
-  border: none;
-  margin-top: 18px;
-  margin-bottom: 40px;
-  height: 1px;
-  background-color: black;
-  width: 78%;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 .histrytd:nth-child(2) {
   border-left: 0px solid rgb(255, 255, 255);
@@ -94,7 +79,6 @@ th {
   font-style: normal;
   font-weight: 700;
   color: #710cb4;
-  padding-left: 32px;
   padding-top: 3px;
 }
 
@@ -117,3 +101,40 @@ th {
 #viewbtw {
   padding-left: 28px;
 }
+
+#historyHR {
+  border: none;
+  margin-top: 18px;
+  margin-bottom: 40px;
+  height: 1px;
+  background-color: black;
+  width: 78vw;
+
+    margin-left: auto;
+  margin-right: auto;
+}
+
+.logTable {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0px solid #d9d9d9;
+  text-align: left;
+}
+
+
+@media (max-width: 480px) {
+  
+#viewbtw {
+  padding-left: 8px;
+}
+ 
+}
+
+
+@media (max-width: 400px) {
+  
+
+  
+  #actionTabs {
+    margin-top: 3vh;}
+  }

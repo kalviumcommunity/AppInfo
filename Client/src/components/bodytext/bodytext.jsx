@@ -3,7 +3,7 @@ import "./bodytext.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingText from "../loading/loading";
 
-function bodytext() {
+function BodyText() {
   const { loginWithRedirect, isLoading } = useAuth0();
 
   return isLoading ? (
@@ -11,7 +11,7 @@ function bodytext() {
   ) : (
     <div id="hometext">
       <div id="centertext">
-        <> Get the inside scoop on all your favourite Android apps!</>
+        <>Get the inside scoop on all your favourite Android apps!</>
       </div>
 
       <div className="getStartedDiv">
@@ -23,4 +23,4 @@ function bodytext() {
   );
 }
 
-export default bodytext;
+export default BodyText;

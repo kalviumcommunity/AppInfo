@@ -49,6 +49,8 @@ function History(props) {
         <p id="logHeading">My Logs</p>
         {isLoading ? (
           <div>
+
+            
             <LoadingText />
            
           </div>
