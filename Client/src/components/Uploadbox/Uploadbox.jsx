@@ -10,9 +10,27 @@ import { useDropzone } from "react-dropzone";
 import LoadingText from "../loading/loading";
 
 
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export const ApkDetails = React.createContext();
 
 function Uploadbox(props) {
+  
+  const notify = () => toast.error('Only .apk files are allowed', {
+    position: "bottom-right",
+    autoClose: false,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: 1,
+    theme: "light",
+  });
+
   const { user, isAuthenticated } = useAuth0();
 
   const [socket, setSocket] = useState(null);
@@ -46,7 +64,21 @@ function Uploadbox(props) {
   };
 
   const onDrop = useCallback((acceptedFiles) => {
-    console.log(acceptedFiles);
+
+    // const files = acceptedFiles.map(file => <li key={file.path}>{file.path}</li>);
+    // console.log(files)
+    let filetype;
+    acceptedFiles.forEach((file) => {
+      filetype = file.type
+    });
+
+
+    if (filetype != 'application/vnd.android.package-archive') {
+      console.log("Wrong Format")
+      notify()
+    }
+
+
     handleFileSelect(acceptedFiles[0]);
     // Do something with the files
   }, [socket]);
@@ -87,6 +119,21 @@ function Uploadbox(props) {
           </div>
         </div>
       )}
+
+
+
+      <button onClick={notify}>Notify!</button>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={false}
+        limit={2}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        theme="light"
+      />
     </>
   );
 }
