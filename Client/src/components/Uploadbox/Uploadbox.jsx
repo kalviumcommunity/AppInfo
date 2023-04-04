@@ -21,7 +21,7 @@ function Uploadbox(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL, { transports:["websocket"]}));
+    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL, { transports: ["websocket"] }));
 
     console.log("useffect", socket);
   }, []);
@@ -53,7 +53,7 @@ function Uploadbox(props) {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop, accept: {
-      accept: 'application/octet-stream'
+      'apk/file': ['.apk']
     }
   });
 
