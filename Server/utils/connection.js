@@ -38,6 +38,7 @@ async function renderData(authId, applicationName, socketId, socket) {
 }
 
 io.on("connection", (socket) => {
+  console.log(socket.id)
   socket.on("upload", async (datas) => {
     let authId = datas.authId;
 

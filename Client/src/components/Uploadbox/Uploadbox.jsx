@@ -21,7 +21,7 @@ function Uploadbox(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL));
+    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL, { transports:["websocket"]}));
 
     console.log("useffect", socket);
   }, []);
