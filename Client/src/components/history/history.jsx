@@ -55,7 +55,7 @@ function History(props) {
            
           </div>
         ) : loading ? (
-          <img src={Loading} alt="" />
+          <img src={Loading} alt="" id="documentgif" />
         ) : (
           <>
             <hr id="historyHR" />

@@ -19,8 +19,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export const ApkDetails = React.createContext();
 
 function Uploadbox(props) {
-  
-  const notify = () => toast.error('Only .apk files are allowed', {
+
+  const notify = () => toast.error('Only APK files are allowed', {
     position: "bottom-right",
     autoClose: false,
     hideProgressBar: false,
@@ -74,13 +74,8 @@ function Uploadbox(props) {
 
 
     if (filetype != 'application/vnd.android.package-archive') {
-      console.log("Wrong Format")
       notify()
-    }
-
-
-    handleFileSelect(acceptedFiles[0]);
-    // Do something with the files
+    } else { handleFileSelect(acceptedFiles[0]); }
   }, [socket]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -120,9 +115,6 @@ function Uploadbox(props) {
         </div>
       )}
 
-
-
-      <button onClick={notify}>Notify!</button>
       <ToastContainer
         position="bottom-center"
         autoClose={false}
@@ -134,6 +126,9 @@ function Uploadbox(props) {
         draggable={false}
         theme="light"
       />
+
+
+
     </>
   );
 }
