@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Login.css";
-import Profile from "./Images/profile.jpg";
-import {ReactComponent as LogoutIcon} from "./Images/header/logout.svg";
-import Logout from "./Images/header/logout.svg";
+import Profile from "../Images/profile.jpg";
+import {ReactComponent as LogoutIcon} from "../Images/header/logout.svg";
 
 export default function Login() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =

@@ -59,11 +59,3 @@ margin-top: 10%;
   }
 
 }
-
-
-@media (max-width: 540px) {
-  #headerdiv {
-    justify-content: space-around;
-}
-
-}
