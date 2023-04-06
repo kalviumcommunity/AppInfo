@@ -1,36 +1,44 @@
-# <Your-Project-Title>
+## APKINFO
 
 ## Description
+APKINFO is a user-friendly web application that provides fundamental details to initiate the process of reverse engineering an Android application or get enthusiastic with the APK details without installing it on your device. The motivation behind building this project was to simplify the process of reverse engineering an APK and to make it more accessible to Android enthusiasts.
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+With APKINFO, you can extract essential details of an APK, such as the package name, version code, version name, minimum and target SDK version, permissions, activities, services, and more. The tool uses Google's Android Asset Packaging tool and Java Keytool to extract the required details.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+What problem does it solve?
 
-## Table of Contents (Optional)
+APKINFO solves the problem of reverse engineering an APK without installing it on your device. It saves time and effort by providing fundamental details that are essential for initiating the reverse engineering process. APKINFO can be used by security researchers, app developers, and Android enthusiasts who are interested in exploring the details of APKs.
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+### Installation Steps
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+1. Download the repository.
+2. Install the dependencies for the frontend and backend by running the following command in the project root directory:
 
-## Installation
+    ```
+    npm install
+    ```
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+3. Create a `.env` file in the `Client` directory and add the following variables:
+
+    ```
+    REACT_APP_AUTH0_DOMAIN="Your Auth0 Domain"
+    REACT_APP_AUTH0_CLIENT_ID="Your Auth0 Client ID"
+    REACT_APP_FETCH_URL=http://localhost:8000/apkinfo
+    REACT_APP_SERVER_SOCKET_URL=http://localhost:8000/
+    ```
+
+4. Add your MongoDB URL in `enum.js` present inside `Server` folder.
+5. Start the backend server by running the following command in your frontend and backend directory:
+
+    ```
+    npm start
+    ```
+
+6. Open your web browser and go to `http://localhost:3000` to view the app.
 
 ## Usage
+![Loading ..](https://res.cloudinary.com/dhdzwkwqg/image/upload/v1680765076/ezgif.com-video-to-gif_vbngow.gif)
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
 
 ## Credits
 
