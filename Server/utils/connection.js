@@ -39,6 +39,7 @@ async function renderData(authId, applicationName, socketId, socket) {
 
 io.on("connection", (socket) => {
   console.log(socket.id)
+  console.log(socket)
   socket.on("upload", async (datas) => {
     let authId = datas.authId;
 
@@ -46,17 +47,20 @@ io.on("connection", (socket) => {
 
     // await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);
 
-     let writer = fs.createWriteStream(`./resources/${applicationName}` ,{encoding:"binary"})
+    let writer = fs.createWriteStream(`./resources/${applicationName}`, { encoding: "binary" })
 
-     writer.write(datas.file)
-        writer.end()
-     writer.addListener("finish" , ()=>{
-      console.log("bytes written" ,writer.bytesWritten)
-     })
+    writer.write(datas.file)
 
-     setInterval(()=>{
+    setInterval(() => {
       console.log(writer.bytesWritten)
-     }, 500)
+    }, 500)
+
+    writer.end()
+    writer.addListener("finish", () => {
+      console.log("bytes written", writer.bytesWritten)
+    })
+
+
     //  writer.addListener("" , ()=>{
 
     //  })
