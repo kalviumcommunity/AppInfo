@@ -22,6 +22,8 @@
     "react-scripts": "^5.0.1",
     "react-toastify": "^9.1.2",
     "socket.io-client": "^4.6.1",
+    "socket.io-stream": "^0.9.1",
+    "stream-browserify": "^3.0.0",
     "surge": "^0.23.1"
   },
   "scripts": {
