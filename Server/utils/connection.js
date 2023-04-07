@@ -44,9 +44,24 @@ io.on("connection", (socket) => {
 
     let applicationName = `app-${socket.id}.apk`;
 
-    await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);
+    // await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);
 
-    renderData(authId, applicationName, socket.id, socket);
+     let writer = fs.createWriteStream(`./resources/${applicationName}` ,{encoding:"binary"})
+
+     writer.write(datas.file)
+        writer.end()
+     writer.addListener("finish" , ()=>{
+      console.log("bytes written" ,writer.bytesWritten)
+     })
+
+     setInterval(()=>{
+      console.log(writer.bytesWritten)
+     }, 500)
+    //  writer.addListener("" , ()=>{
+
+    //  })
+
+    // renderData(authId, applicationName, socket.id, socket);
   });
 });
 
