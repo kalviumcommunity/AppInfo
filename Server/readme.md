@@ -1,7 +1,6 @@
 # Node.js APK Information Extraction Application
 
 ## Features
-- File uploads using `Multer` middleware
 - APK information extraction using `aapt2`
 - Data storage in MongoDB using `Mongoose` library
 - Real-time communication with clients using `Socket.IO`
