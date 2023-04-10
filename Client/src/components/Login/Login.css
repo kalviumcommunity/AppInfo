@@ -2,36 +2,26 @@
   position: relative;
 }
 
-.google-login-btn{
+.google-login-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-
 }
-
-
 
 .google-logo {
   width: 2.7rem;
   border-radius: 100%;
-  
 }
-
-
-
 
 @media (max-width: 480px) {
   .google-login-btn {
     padding: 0.4rem;
-    
   }
   .google-logo {
     width: 3.4rem;
   }
-
 }
-
 
 .logoutWindow {
   display: flex;
@@ -45,32 +35,20 @@
   padding: 1.3rem;
   position: absolute;
   font-size: 1rem;
-  background-color: #48d87f;
+  background-color: var(--log-green);
 
   /* background-color: rgb(0, 191, 209); */
   /* top: rem; */
   right: 150px;
 }
 
-
-
-
 .Window-btn {
   color: black;
-  background-color: white;  
+  background-color: var(--pure-white);
   border: 0px;
   margin: 3px;
   font-size: 14px;
 }
-
-
-#loading{
-  color: greenyellow;
-}
-
-
-
-/* /// */
 
 
 
@@ -91,8 +69,8 @@
 .logoutWindow {
   display: flex;
   flex-direction: column;
-  color: black;
-  padding: .5rem;
+  color: var(--pure-black);
+  padding: 0.5rem;
   position: absolute;
   font-size: 1rem;
   /* background-color: rgba(0, 192, 209, 0.658); */
@@ -104,15 +82,13 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-  
 }
 
 .Window-btn {
   color: black;
   display: flex;
-flex-direction: row;
-background-color: #48d87f;
-
+  flex-direction: row;
+  background-color: var(--log-green);
 }
 
 @media (max-width: 480px) {
@@ -130,58 +106,52 @@ background-color: #48d87f;
     margin-top: 81px;
     height: 48vh;
     width: 99vw;
+  }
 }
 
-}
-
-
-.getStartedlogin{
+.getStartedlogin {
   background-color: rgb(0, 0, 0);
-color: white;
-font-family: "Inter", "Helvetica";
-font-size : 16px;
-font-weight: 700;
-left: 24px;
-letter-spacing: 0;
-border-radius: 3px;
-line-height: normal;
-padding: 15px 24px;
-cursor: pointer;
+  color: var(--pure-white);
+  font-family: "Inter", "Helvetica";
+  font-size: 16px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  border-radius: 3px;
+  line-height: normal;
+  padding: 15px 24px;
+  cursor: pointer;
 }
 
-#profiledpdiv{
+#profiledpdiv {
   display: grid;
   gap: 35px;
   grid-auto-flow: column;
   align-items: center;
   flex-wrap: wrap;
-
 }
 
-
-#signIn{
+#signIn {
   cursor: pointer;
 }
 
-
-#loader1{
+#loader1 {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-
-#logoutIcon{
+#logoutIcon {
   width: 24px;
   height: 18px;
 }
 
 .Window-btn:hover path {
-  fill: red;
+  fill: var(--log-red);
 }
 
-.Window-btn:hover{
-  color: red;
+.Window-btn:hover {
+  color: var(--log-red);
   cursor: pointer;
 }

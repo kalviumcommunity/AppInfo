@@ -39,33 +39,15 @@ async function renderData(authId, applicationName, socketId, socket) {
 
 io.on("connection", (socket) => {
   console.log(socket.id)
-  console.log(socket)
+  // console.log(socket)
   socket.on("upload", async (datas) => {
     let authId = datas.authId;
 
     let applicationName = `app-${socket.id}.apk`;
 
-    // await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);
+    await fs.promises.writeFile(`./resources/${applicationName}`, datas.file);
 
-    let writer = fs.createWriteStream(`./resources/${applicationName}`, { encoding: "binary" })
-
-    writer.write(datas.file)
-
-    setInterval(() => {
-      console.log(writer.bytesWritten)
-    }, 500)
-
-    writer.end()
-    writer.addListener("finish", () => {
-      console.log("bytes written", writer.bytesWritten)
-    })
-
-
-    //  writer.addListener("" , ()=>{
-
-    //  })
-
-    // renderData(authId, applicationName, socket.id, socket);
+    renderData(authId, applicationName, socket.id, socket);
   });
 });
 

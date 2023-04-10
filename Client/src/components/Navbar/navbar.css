@@ -1,5 +1,5 @@
 #navspan {
-    color: rgb(0, 0, 0);
+    color: var(--pure-black);
     /* background-color: #1b1d21; */
     cursor: pointer;
     font-weight: 550;
@@ -7,7 +7,7 @@
   }
   
   #navspan:hover {
-    color: #2DAAE9;
+    color: var(--highlight-blue);
   }
 
 
@@ -18,8 +18,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    /* background-color: #1b1d21; */
-    background-color: #ffffff;
+    background-color: var(--pure-white);
   
   }
 

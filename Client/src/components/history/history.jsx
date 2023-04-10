@@ -50,9 +50,9 @@ function History(props) {
         {isLoading ? (
           <div>
 
-            
+
             <LoadingText />
-           
+
           </div>
         ) : loading ? (
           <img src={Loading} alt="" id="documentgif" />
@@ -91,7 +91,7 @@ function History(props) {
                             onClick={() => handleDelete(item._id)}
                           >
                             <DeleteIcon />
-                      
+
                           </span>
                         </td>
                       </tr>
