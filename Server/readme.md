@@ -24,4 +24,4 @@ To install and run the application, follow these steps:
 5. Open the application in your browser at `http://localhost:3000`
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under  Apache-2.0 license . See the LICENSE file for details.
