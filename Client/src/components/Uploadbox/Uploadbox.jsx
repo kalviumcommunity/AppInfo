@@ -41,23 +41,18 @@ function Uploadbox(props) {
   useEffect(() => {
     setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL, { transports: ["websocket"] }));
 
-    console.log("useffect", socket);
   }, []);
 
   const handleFileSelect = (file) => {
     setLoading(true); // Set loading state to true
-    console.log(file)
     const message = user.sub;
     const data = {
       file: file,
       authId: message,
     };
-    console.log("handlefileselect", socket);
     socket.emit("upload", data);
-    console.log("File Emitting through Upload Button");
 
     socket.on("data", (apkdatas) => {
-      console.log({ apkdatas });
       props.setApkinfo({ ...apkdatas });
       navigate("/details");
       setLoading(false); // Set loading state to false when data is received
@@ -66,8 +61,6 @@ function Uploadbox(props) {
 
   const onDrop = useCallback((acceptedFiles) => {
 
-    // const files = acceptedFiles.map(file => <li key={file.path}>{file.path}</li>);
-    // console.log(files)
     let filetype;
     acceptedFiles.forEach((file) => {
       filetype = file.type

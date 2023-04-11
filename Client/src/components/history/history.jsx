@@ -18,7 +18,6 @@ function History(props) {
       fetch(process.env.REACT_APP_FETCH_URL + "/" + user.sub)
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           setApkinfo(res);
           setLoading(false);
         });
@@ -29,7 +28,6 @@ function History(props) {
     axios
       .delete(process.env.REACT_APP_FETCH_URL + "/" + id)
       .then((data) => {
-        console.log(data);
         setApkinfo(apkinfo.filter((item) => item._id !== id));
       })
       .catch((err) => {
@@ -38,7 +36,6 @@ function History(props) {
   };
 
   function historydetails(details, id) {
-    console.log(details);
     props.setHistoryDetails(details);
     navigate("/history/details");
   }
