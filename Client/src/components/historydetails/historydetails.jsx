@@ -26,7 +26,7 @@ function HistoryDetails(props) {
       </p>
 
       <div id="logDetailsAppName">
-        {props.historyDetails.application_Name} (Application Name)
+        {props.historyDetails.application_Name}
       </div>
 
       <div id="logDetailsTimeStamp">

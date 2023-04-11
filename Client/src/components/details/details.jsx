@@ -18,6 +18,14 @@ function details({ apkinfo }) {
 
   return (<>
     <div id='details outerdiv'>
+
+    <div id="logDetailsAppName">
+        {apkinfo.application_Name}
+      </div>
+
+      <hr id="historyHR" />
+
+
       <div id='toc'>
         <table id="tablebottompadding">
           <thead>

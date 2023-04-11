@@ -52,7 +52,6 @@ export default function Login() {
             Sign Up
           </button>
 
-          {/* <img src={Loading} id="dp" alt="" /> */}
         </span>
       )}
 
@@ -65,10 +64,7 @@ export default function Login() {
               <LogoutIcon id="logoutIcon" />
             </div>
 
-            {/* <button className="Window-btn" onClick={handleLogout}>
-
-               
-            </button> */}
+           
           </div>
         </div>
       )}
