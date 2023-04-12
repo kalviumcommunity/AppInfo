@@ -1,0 +1,32 @@
+#heading {
+  font-family: "Rubik";
+}
+
+.texthtu {
+  font-family: "Inter";
+  font-size: 18px;
+}
+
+.txtmargin {
+  margin-top: 1rem;
+}
+
+.vidgif {
+  width: 50%;
+}
+
+#padding {
+  padding: 24px;
+}
+
+
+
+@media (max-width: 900px) {
+   
+.vidgif {
+    width: 90%;
+  }
+  
+  
+  }
+  
