@@ -16,20 +16,21 @@ function App() {
 
   const [historyDetails, setHistoryDetails] = useState("");
 
-  
+
 
 
   const [login, setLogin] = useState(false);
 
   return (
-    <Auth0Provider
-      domain={process.env.REACT_APP_AUTH0_DOMAIN}
-      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
-      <BrowserRouter>
+    <BrowserRouter>
+
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH0_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+      >
         <Navbar setLogin={setLogin} />
 
         <Routes>
@@ -60,8 +61,8 @@ function App() {
 
           {/* <Details /> */}
         </Routes>
-      </BrowserRouter>
-    </Auth0Provider>
+      </Auth0Provider>
+    </BrowserRouter>
   );
 }
 
