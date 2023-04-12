@@ -30,35 +30,35 @@ function details({ apkinfo }) {
         <table id="tablebottompadding">
           <thead>
             <tr>
-              <td id="tableborder">ApplicationName</td>
+              <td id="tableborder">Application name</td>
               <td id="tableborder">{apkinfo.application_Name}</td>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td id="tableborder">MinSDKVersion</td>
+              <td id="tableborder">MinSDK version</td>
               <td id="tableborder">{apkinfo.minsdkVersion}</td>
             </tr>
             <tr>
-              <td id="tableborder">TargetSdkVersion</td>
+              <td id="tableborder">TargetSdk version</td>
               <td id="tableborder">{apkinfo.targetSdkVersion}</td>
             </tr>
             <tr>
-              <td id="tableborder">versionName</td>
+              <td id="tableborder">Version name</td>
               <td id="tableborder">{apkinfo.versionName}</td>
             </tr>
             <tr>
-              <td id="tableborder">versionCode</td>
+              <td id="tableborder">Version code</td>
               <td id="tableborder">{apkinfo.versionCode}</td>
             </tr>
             <tr>
-              <td id="tableborder">SupportScreensizes</td>
+              <td id="tableborder">Supported screen sizes</td>
               <td id="tableborder">{apkinfo.supportScreensizes}</td>
             </tr>
 
             <tr>
-              <td id="tableborder">SupportedScreenDensities</td>
+              <td id="tableborder">Supported screen densities</td>
               <td id="tableborder" className='overflow'>{apkinfo.supportedScreendensities}</td>
             </tr>
             <tr>

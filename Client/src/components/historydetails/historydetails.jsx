@@ -40,38 +40,38 @@ function HistoryDetails(props) {
 
             <tbody>
               <tr>
-                <td id="tableborder">ApplicationName</td>
+                <td id="tableborder">Application name</td>
                 <td id="tableborder">
                   {props.historyDetails.application_Name}
                 </td>
               </tr>
               <tr>
-                <td id="tableborder">MinSDKVersion</td>
+                <td id="tableborder">MinSDK version</td>
                 <td id="tableborder">{props.historyDetails.minsdkVersion}</td>
               </tr>
               <tr>
-                <td id="tableborder">TargetSdkVersion</td>
+                <td id="tableborder">TargetSdk version</td>
                 <td id="tableborder">
                   {props.historyDetails.targetSdkVersion}
                 </td>
               </tr>
               <tr>
-                <td id="tableborder">versionName</td>
+                <td id="tableborder">Version name</td>
                 <td id="tableborder">{props.historyDetails.versionName}</td>
               </tr>
               <tr>
-                <td id="tableborder">versionCode</td>
+                <td id="tableborder">Version code</td>
                 <td id="tableborder">{props.historyDetails.versionCode}</td>
               </tr>
               <tr>
-                <td id="tableborder">SupportScreensizes</td>
+                <td id="tableborder">Support screensizes</td>
                 <td id="tableborder">
                   {props.historyDetails.supportScreensizes}
                 </td>
               </tr>
 
               <tr>
-                <td id="tableborder">SupportedScreenDensities</td>
+                <td id="tableborder">Supported screen densities</td>
                 <td id="tableborder" className="overflow">
                   {props.historyDetails.supportedScreendensities}
                 </td>
