@@ -46,8 +46,7 @@ APKINFO solves the problem of reverse engineering an APK without installing it o
 6. Open your web browser and go to `http://localhost:3000` to view the app.
 
 ## Usage
-![Loading ..](https://res.cloudinary.com/dhdzwkwqg/image/upload/v1680765076/ezgif.com-video-to-gif_vbngow.gif)
-
+![Loading ..](https://res.cloudinary.com/dhdzwkwqg/image/upload/v1681280475/ezgif.com-video-to-gif_1_kmsi0h.gif)
 
 ## Credits
 
