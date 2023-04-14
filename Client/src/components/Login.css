@@ -45,6 +45,8 @@
   padding: 1.3rem;
   position: absolute;
   font-size: 1rem;
+  background-color: #48d87f;
+
   /* background-color: rgb(0, 191, 209); */
   /* top: rem; */
   right: 150px;
@@ -102,12 +104,15 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
+  
 }
 
 .Window-btn {
   color: black;
   display: flex;
 flex-direction: row;
+background-color: #48d87f;
+
 }
 
 @media (max-width: 480px) {
