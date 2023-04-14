@@ -22,4 +22,14 @@
   
   }
 
+  #glowblue{
+    text-decoration: none;
+    color: var(--pure-black);
+  }
+
   
+  #glowblue:hover{
+    text-decoration: none;
+        color: var(--highlight-blue);
+
+  }
