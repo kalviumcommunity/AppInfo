@@ -21,7 +21,7 @@ function HistoryDetails(props) {
     <>
       <p id="logdetailsHeading">
         <span id="logstyle" onClick={navigateToHistory}>
-          My Logs
+          My Logs 
         </span>
       </p>
 

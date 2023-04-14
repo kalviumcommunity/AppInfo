@@ -122,12 +122,17 @@ th {
 }
 
 
+
 @media (max-width: 480px) {
   
 #viewbtw {
   padding-left: 8px;
 }
  
+#documentgif{
+  width: 100vw;
+  height: 60vh;
+}
 }
 
 

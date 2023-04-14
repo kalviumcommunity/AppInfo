@@ -10,9 +10,27 @@ import { useDropzone } from "react-dropzone";
 import LoadingText from "../loading/loading";
 
 
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export const ApkDetails = React.createContext();
 
 function Uploadbox(props) {
+
+  const notify = () => toast.error('Only APK files are allowed', {
+    position: "bottom-right",
+    autoClose: false,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: 1,
+    theme: "light",
+  });
+
   const { user, isAuthenticated } = useAuth0();
 
   const [socket, setSocket] = useState(null);
@@ -21,7 +39,7 @@ function Uploadbox(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL));
+    setSocket(socketIOClient(process.env.REACT_APP_SERVER_SOCKET_URL, { transports: ["websocket"] }));
 
     console.log("useffect", socket);
   }, []);
@@ -46,14 +64,23 @@ function Uploadbox(props) {
   };
 
   const onDrop = useCallback((acceptedFiles) => {
-    console.log(acceptedFiles);
-    handleFileSelect(acceptedFiles[0]);
-    // Do something with the files
+
+    // const files = acceptedFiles.map(file => <li key={file.path}>{file.path}</li>);
+    // console.log(files)
+    let filetype;
+    acceptedFiles.forEach((file) => {
+      filetype = file.type
+    });
+
+
+    if (filetype != 'application/vnd.android.package-archive') {
+      notify()
+    } else { handleFileSelect(acceptedFiles[0]); }
   }, [socket]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop, accept: {
-      accept: 'application/octet-stream'
+      'apk/file': ['.apk']
     }
   });
 
@@ -87,6 +114,21 @@ function Uploadbox(props) {
           </div>
         </div>
       )}
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={false}
+        limit={2}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        theme="light"
+      />
+
+
+
     </>
   );
 }
