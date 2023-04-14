@@ -7,7 +7,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "./Uploadbox.css";
 import { VscCloudUpload } from "react-icons/vsc";
 import { useDropzone } from "react-dropzone";
-import LoadingText from "../loading/loading";
 
 
 
