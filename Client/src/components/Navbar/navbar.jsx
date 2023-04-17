@@ -1,11 +1,12 @@
 import React from "react";
 import logo from "../Images/header/logo.svg";
 import "../styles.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Login from "../Login/Login";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
@@ -39,7 +40,11 @@ const Navbar = (props) => {
         <div id="grideven" className="grideven">
           {isAuthenticated ? (
             <span id="navspan" onClick={() => navigatetohistory()}>
-              My Logs
+              <Link  id="glowblue" to="/history" >
+
+                My Logs
+
+              </Link>
             </span>
           ) : isLoading ? (
             <span id="navspan" onClick={() => navigatetohistory()}>
@@ -49,7 +54,9 @@ const Navbar = (props) => {
             <></>
           )}
           <span id="navspan" onClick={() => navigatetoguides()}>
-            How to use?
+            <Link to="/history" id="glowblue" >
+              How to use?
+            </Link>
           </span>
           <div>
             <Login />

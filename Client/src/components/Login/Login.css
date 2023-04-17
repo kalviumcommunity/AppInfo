@@ -64,6 +64,7 @@
   height: 43px;
   width: 43px;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .logoutWindow {
