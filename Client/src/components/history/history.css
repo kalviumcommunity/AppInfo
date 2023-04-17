@@ -29,7 +29,7 @@ th {
 #logHeading {
   font-weight: 700;
   font-size: 24px;
-  font-family: "Inter", Helvetica;
+  font-family: "Rubik", Helvetica;
   text-align: left;
 
   border: none;
@@ -68,6 +68,10 @@ th {
 
 .delete-icon:hover path {
   stroke: var(--highlight-red); /* set the color of the icon on hover */
+}
+
+.delete-icon:active path {
+  stroke: var(--log-red);
 }
 #deleteIcon {
   cursor: pointer;

@@ -15,8 +15,8 @@
   --hover-green:#13c333;
   --click-green:#08681d;
   --inner-ash:#989898;
-  --log-green: #48d87f;
-  --log-red: red;
+  --log-green: #fbfbfb;
+  --log-red: rgb(233, 20, 20);
 }
 
 body {
@@ -216,9 +216,6 @@ tr {
   height: 65vh;
 }
 
-.labeltxt {
-  font-family: "Inter";
-}
 table {
   font-family: "Source Code Pro", monospace;
 }
@@ -228,7 +225,7 @@ table {
 }
 
 .grideven {
-  font-family: "Inter";
+  font-family: 'Rubik';
   font-weight: 500;
 }
 
@@ -294,15 +291,3 @@ tr td{
   text-align: left;
 }
 
-
-@media (max-width: 1024px) {
-  html {
-    font-size: 48%;
-  }
-}
-
-@media (max-width: 800px) {
-  html {
-    font-size: 43%;
-  }
-}

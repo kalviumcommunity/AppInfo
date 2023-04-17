@@ -113,9 +113,7 @@
   background-color: rgb(0, 0, 0);
   color: var(--pure-white);
   font-family: "Inter", "Helvetica";
-  font-size: 16px;
-  font-weight: 700;
-  left: 24px;
+  font-size: 18px;
   letter-spacing: 0;
   border-radius: 3px;
   line-height: normal;
@@ -123,6 +121,10 @@
   cursor: pointer;
 }
 
+
+.getStartedlogin:hover {
+  font-weight: 600;
+}
 #profiledpdiv {
   display: grid;
   gap: 35px;
@@ -133,7 +135,12 @@
 
 #signIn {
   cursor: pointer;
+  font-size: 18px;
+
 }
+
+#signIn:hover {
+color: var( --highlight-blue);}
 
 #loader1 {
   display: flex;

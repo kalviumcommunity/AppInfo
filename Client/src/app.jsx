@@ -16,45 +16,21 @@ function App() {
 
   const [historyDetails, setHistoryDetails] = useState("");
 
-  console.log(process.env.REACT_APP_AUTH0_CLIENT_ID);
-  
-  const { user } = useAuth0();
 
-  const { isAuthenticated, isLoading } = useAuth0();
+
 
   const [login, setLogin] = useState(false);
 
-  console.log(login);
-
-  // useEffect(() => {
-  //   if (user) {
-  //     console.log(user)
-  //     fetch(process.env.REACT_APP_FETCH_URL+"/"+user.sub)
-  //       .then((res) => res.json())
-  //       .then((res) => {
-  //         console.log(res);
-  //         setData(res);
-  //       });
-  //   }
-  // }, [user]);
-
-  // console.log(isLoading )
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     console.log(isAuthenticated )
-  //     setLogin(false);
-  //   }
-  // }, [isAuthenticated]);
-
   return (
-    <Auth0Provider
-      domain={process.env.REACT_APP_AUTH0_DOMAIN}
-      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
-      <BrowserRouter>
+    <BrowserRouter>
+
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH0_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+      >
         <Navbar setLogin={setLogin} />
 
         <Routes>
@@ -85,8 +61,8 @@ function App() {
 
           {/* <Details /> */}
         </Routes>
-      </BrowserRouter>
-    </Auth0Provider>
+      </Auth0Provider>
+    </BrowserRouter>
   );
 }
 
