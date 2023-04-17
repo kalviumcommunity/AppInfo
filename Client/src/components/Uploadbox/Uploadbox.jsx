@@ -46,6 +46,7 @@ function Uploadbox(props) {
 
   const handleFileSelect = (file) => {
     setLoading(true); // Set loading state to true
+    console.log(file)
     const message = user.sub;
     const data = {
       file: file,

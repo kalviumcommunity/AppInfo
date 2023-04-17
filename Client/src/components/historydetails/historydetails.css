@@ -1,4 +1,4 @@
-#logdetailsHeading{
+#logdetailsHeading {
   font-family: "Inter", Helvetica;
   text-align: left;
 
@@ -9,16 +9,16 @@
   cursor: pointer;
 }
 
-#logstyle{
-    font-style: italic;
-    text-decoration: underline;
-    font-size: 14px;
-    font-weight: 400;
+#logstyle {
+  font-style: italic;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 400;
 }
 
-#logDetailsAppName{
-    font-weight: 700;
-    font-size: 24px;
+#logDetailsAppName {
+  font-weight: 700;
+  font-size: 24px;
   font-family: "Inter", Helvetica;
   text-align: left;
 
@@ -27,38 +27,15 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 17px;
-
-
 }
 
-table{
-    /* background-color: #d9d9d9; */
-    border: 1px solid #989898;
-    border-collapse: collapse;
-    border-spacing: 0;
+#tableborder {
+  border: 1px solid var(--inner-ash);
 }
 
-#tableborder{
-
-  border: 1px solid #989898;
-
-
-}
-
- td:nth-child(2) {
-    border-left: 1px solid black;
-    
-  }
-  
-  tr td{
-    background-color: #F7F7F7;
-    text-align: left;
-  }
-
-
-  #logDetailsTimeStamp{
-    font-weight: 400;
-    font-size: 14px;
+#logDetailsTimeStamp {
+  font-weight: 400;
+  font-size: 14px;
   font-family: "Inter", Helvetica;
   text-align: left;
   font-style: italic;
@@ -68,8 +45,8 @@ table{
   margin-left: auto;
   margin-right: auto;
   padding-top: 17px;
-  }
+}
 
- #tablebottompadding{
+#tablebottompadding {
   margin-bottom: 20px;
- }
+}
