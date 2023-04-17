@@ -4,16 +4,20 @@
   "private": true,
   "dependencies": {
     "@socket.io/cluster-adapter": "^0.2.2",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.1",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20",
     "pm2": "^5.3.0",
     "progressbar.js": "^1.1.0",
     "react": "^18.2.0",
     "socket.io": "^4.6.1",
-    "socket.io-client": "^4.6.1"
+    "socket.io-client": "^4.6.1",
+    "socket.io-stream": "^0.9.1",
+    "socketio-file-upload": "^0.7.3"
   },
   "scripts": {
     "start": "nodemon server.js"

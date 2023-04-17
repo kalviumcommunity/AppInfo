@@ -15,6 +15,13 @@ app.get("/apkinfo", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+
+
+app.get("/test", (req, res) => {
+  res.send("Hey There this is test endpoind")
+});
+
+
 app.get("/apkinfo/:authId", (req, res) => {
   const { authId } = req.params;
   console.log(req.params);
