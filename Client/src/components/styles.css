@@ -263,3 +263,13 @@ table {
 #toc{
  padding: 14px; 
 }
+
+
+
+
+@media (max-width: 540px) {
+  #headerdiv {
+    justify-content: space-around;
+}
+
+}

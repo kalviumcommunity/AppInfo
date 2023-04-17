@@ -53,6 +53,8 @@ function Uploadbox(props) {
     };
     console.log("handlefileselect", socket);
     socket.emit("upload", data);
+
+    
     console.log("File Emitting through Upload Button");
 
     socket.on("data", (apkdatas) => {
